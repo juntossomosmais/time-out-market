@@ -52,7 +52,7 @@
     "stylelint-config-recommended": "^12.0.0",
     "stylelint-order": "^6.0.3",
     "typescript": "^5.1.5",
-    "vitest": "^0.32.2"
+    "vitest": "^0.33.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
