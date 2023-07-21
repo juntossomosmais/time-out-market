@@ -1,0 +1,21 @@
+{
+  "name": "@juntossomosmais/linters",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juntossomosmais/time-out-market.git",
+    "directory": "packages/linters"
+  },
+  "publishConfig": {
+    "@juntossomosmais:registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "exports": {
+    "./*": "./*"
+  },
+  "peerDependencies": {
+    "@commitlint/cli": ">= 17",
+    "@commitlint/config-conventional": ">= 17"
+  }
+}
