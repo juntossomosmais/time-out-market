@@ -10,16 +10,13 @@
     "node": ">=16.x"
   },
   "workspaces": [
-    "apps/*",
-    "packages/*",
-    "utils/*"
+    "packages/*"
   ],
   "scripts": {
     "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c  ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
     "lint:styles": "stylelint '**/*.scss'",
-    "postinstall": "npx husky install",
     "pre-commit": "lint-staged",
-    "prepare": "commands-to-run-before-publish",
+    "prepare": "husky install",
     "start": "nx run-many --target=start --maxParallel=10",
     "test": "nx run-many --target=test --parallel",
     "test:ci": "npx nx affected --target=test:unit --base=origin/main --parallel"
@@ -33,6 +30,7 @@
     "@nrwl/cli": "15.9.3",
     "@nrwl/eslint-plugin-nx": "^16.4.0",
     "@nrwl/workspace": "16.4.0",
+    "@types/node": "18.7.1",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "babel-loader": "^9.1.2",
@@ -63,7 +61,7 @@
       "npm run lint:styles"
     ]
   },
-  "dependencies": {
-    "npm-check-updates": "^16.10.13"
+  "nx": {
+    "includedScripts": []
   }
 }
