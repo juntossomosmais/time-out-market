@@ -66,12 +66,10 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         run: npm ci --legacy-peer-deps
 
-      - name: Build and publish package
-        if: ${{ steps.release.outputs['packages/package--release_created'] }}
+      - name: Build and publish Linters
+        if: ${{ steps.release.outputs['packages/linters--release_created'] }}
         run: |
-          npm run build
-          npm run publish-library
+          npm publish
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
