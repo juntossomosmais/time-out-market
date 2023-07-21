@@ -1,8 +1,7 @@
 {
-  "prerelease": true,
-  "release-as": "0.0.0-alpha.0",
+  "prerelease": false,
   "packages": {
-
+    "packages/linters": {},
   },
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
 }
