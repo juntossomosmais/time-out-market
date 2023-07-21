@@ -1,8 +1,18 @@
 {
-  "defaultProject": "default-project-name",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "inputs": ["default", "^default"]
+    }
+  },
+  "workspaceLayout": {
+    "libsDir": "packages"
+  },
   "extends": "@nrwl/workspace/presets/core.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "project-name-scope",
+  "npmScope": "@juntossomosmais",
   "affected": {
     "defaultBase": "main"
   },
@@ -25,19 +35,5 @@
         "cacheableOperations": ["build", "lint", "test"]
       }
     }
-  },
-  "targetDefaults": {
-    "build": {
-      "dependsOn": ["^build"]
-    }
-  },
-  "pluginsConfig": {
-    "@nrwl/js": {
-      "analyzeSourceFiles": true
-    }
-  },
-  "workspaceLayout": {
-    "appsDir": "apps",
-    "libsDir": "packages"
   }
 }
