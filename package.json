@@ -1,7 +1,7 @@
 {
-  "name": "project",
-  "description": "project-description",
-  "license": "license",
+  "name": "Time Out Market",
+  "description": "A market of shared JavaScript libraries to help you save time and effort",
+  "license": "MIT",
   "private": true,
   "npmClient": "npm",
   "engines": {
