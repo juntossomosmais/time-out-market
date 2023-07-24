@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.1.0...linters-v0.2.0) (2023-07-24)
+## [0.1.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v1.0.0...linters-v1.1.0) (2023-07-21)
 
 
 ### Features
