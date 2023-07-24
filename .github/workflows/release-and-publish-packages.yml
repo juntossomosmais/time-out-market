@@ -69,7 +69,7 @@ jobs:
       - name: Build and publish Linters
         if: ${{ steps.release.outputs['packages/linters--release_created'] }}
         run: |
-          npm publish
+          npx nx run @juntossomosmais/linters:publish-library
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
