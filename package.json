@@ -1,5 +1,5 @@
 {
-  "name": "Time Out Market",
+  "name": "@juntossomosmais/time-out-market",
   "description": "A market of shared JavaScript libraries to help you save time and effort",
   "license": "MIT",
   "private": true,
