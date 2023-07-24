@@ -14,6 +14,9 @@
   "exports": {
     "./*": "./*"
   },
+  "scripts": {
+    "publish-library": "npm publish --access public"
+  },
   "peerDependencies": {
     "@commitlint/cli": ">= 17",
     "@commitlint/config-conventional": ">= 17"
