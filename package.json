@@ -19,7 +19,8 @@
     "prepare": "husky install",
     "start": "npx nx run-many --target=start --maxParallel=10",
     "test": "npx nx run-many --target=test --parallel",
-    "test:ci": "npx nx affected --target=test:ci --base=origin/main --parallel"
+    "test:ci": "npx nx affected --target=test:ci --base=origin/main --parallel",
+    "test:ci-merge": "npx nx affected --target=test:ci --base=origin/main~1 --head=origin/main --parallel"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
