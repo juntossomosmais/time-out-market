@@ -3,5 +3,37 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/linters",
   "projectType": "library",
-  "tags": []
+  "tags": [],
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "jest -coverage"
+          }
+        ]
+      }
+    },
+    "test:ci": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "jest --coverage --ci"
+          }
+        ]
+      }
+    },
+    "publish-package": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npm publish --access public"
+          }
+        ]
+      }
+    }
+  }
 }

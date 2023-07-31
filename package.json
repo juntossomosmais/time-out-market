@@ -17,9 +17,9 @@
     "lint:styles": "stylelint '**/*.scss'",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
-    "start": "nx run-many --target=start --maxParallel=10",
-    "test": "nx run-many --target=test --parallel",
-    "test:ci": "npx nx affected --target=test:unit --base=origin/main --parallel"
+    "start": "npx nx run-many --target=start --maxParallel=10",
+    "test": "npx nx run-many --target=test --parallel",
+    "test:ci": "npx nx affected --target=test:ci --base=origin/main --parallel"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
