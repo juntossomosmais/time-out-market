@@ -20,7 +20,7 @@
       "options": {
         "commands": [
           {
-            "command": "jest --coverage --ci"
+            "command": "jest --coverage --ci --passWithNoTests"
           }
         ]
       }
