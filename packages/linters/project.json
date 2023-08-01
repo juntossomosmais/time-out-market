@@ -31,7 +31,7 @@
       "options": {
         "commands": [
           {
-            "command": "jest --coverage --ci --coverageDirectory=packages/linters/coverage"
+            "command": "jest --coverage --ci --coverageDirectory=packages/linters/coverage --passWithNoTests"
           }
         ]
       }
