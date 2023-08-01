@@ -13,6 +13,7 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "npx nx run-many --target=build --parallel",
     "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c  ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
     "lint:styles": "stylelint '**/*.scss'",
     "pre-commit": "lint-staged",
@@ -28,6 +29,7 @@
     "@babel/preset-typescript": "^7.22.5",
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
+    "@juntossomosmais/atomium-tokens": "^1.0.0",
     "@nrwl/cli": "15.9.3",
     "@nrwl/eslint-plugin-nx": "^16.5.4",
     "@nrwl/workspace": "16.5.4",
