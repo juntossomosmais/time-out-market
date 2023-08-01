@@ -5,20 +5,10 @@
   "projectType": "library",
   "tags": [],
   "targets": {
-    "build": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/linters",
-        "commands": [
-          {
-            "command": "npx copyfiles -e **/*.spec.js -u 1 src/**/* dist"
-          }
-        ]
-      }
-    },
     "test": {
       "executor": "nx:run-commands",
       "options": {
+        "cwd": "packages/linters",
         "commands": [
           {
             "command": "jest"
@@ -29,15 +19,17 @@
     "test:ci": {
       "executor": "nx:run-commands",
       "options": {
+        "cwd": "packages/linters",
         "commands": [
           {
-            "command": "jest --coverage --ci --coverageDirectory=packages/linters/coverage --passWithNoTests"
+            "command": "jest --coverage --ci --passWithNoTests"
           }
         ]
       }
     },
     "publish-package": {
       "executor": "nx:run-commands",
+      "cwd": "packages/linters",
       "options": {
         "commands": [
           {
