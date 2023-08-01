@@ -1,6 +1,10 @@
 module.exports = {
   extends: ['stylelint-config-recommended'],
-  plugins: ['stylelint-order', 'stylelint-scss'],
+  plugins: [
+    'stylelint-order',
+    'stylelint-scss',
+    'stylelint/plugins/use-font-letter-spacing.js',
+  ],
   customSyntax: 'postcss-scss',
   rules: {
     'order/order': ['custom-properties', 'declarations'],
@@ -25,5 +29,6 @@ module.exports = {
         ignoreAtRules: ['include', 'extend', 'mixin'],
       },
     ],
+    'plugin/use-font-letter-spacing': true,
   },
 }
