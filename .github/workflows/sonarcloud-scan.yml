@@ -57,8 +57,12 @@ jobs:
         continue-on-error: true
         run: npm list
 
-      - name: Install dependencies and build libs 🔧
+      - name: Install dependencies
         run: npm ci --legacy-peer-deps
+        continue-on-error: false
+
+      - name: Build libs 🔧
+        run: npm run build
         continue-on-error: false
 
       - name: Define test script to run
