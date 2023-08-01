@@ -1,9 +1,10 @@
 module.exports = {
   testEnvironment: 'node',
   collectCoverage: true,
+  coverageDirectory: './packages/linters/coverage/',
   coverageReporters: ['lcov'],
   coveragePathIgnorePatterns: ['/node_modules/'],
-  collectCoverageFrom: ['stylelint/plugins/*.mjs'],
+  collectCoverageFrom: ['src/**/*.js'],
   coverageThreshold: {
     global: {
       lines: 80,
