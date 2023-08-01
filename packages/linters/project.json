@@ -8,9 +8,10 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
+        "cwd": "packages/linters",
         "commands": [
           {
-            "command": "npx shx cp -R ./packages/linters/src ./packages/linters/dist"
+            "command": "npx copyfiles -e **/*.spec.js -u 1 src/**/* dist"
           }
         ]
       }
