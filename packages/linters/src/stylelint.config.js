@@ -3,7 +3,7 @@ module.exports = {
   plugins: [
     'stylelint-order',
     'stylelint-scss',
-    'stylelint/plugins/use-font-letter-spacing.js',
+    '@juntossomosmais/linters/stylelint/plugins/use-font-letter-spacing.js',
   ],
   customSyntax: 'postcss-scss',
   rules: {
