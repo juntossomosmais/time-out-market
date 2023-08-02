@@ -57,7 +57,7 @@ jobs:
         run: npm list
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm ci --legacy-peer-deps --include=optional
         continue-on-error: false
 
       - name: Define test script to run
