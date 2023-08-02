@@ -1,7 +1,7 @@
 const { messages } = require('../use-font-letter-spacing')
 const stylelint = require('stylelint')
 
-const validCss = '.class { font: 16px Arial; letter-spacing: 1px; }'
+const validCss = '.class { font: 16px Arial; left: 0; letter-spacing: 1px; }'
 const invalidCss = '.class { font: 16px Arial; }'
 
 const config = {
