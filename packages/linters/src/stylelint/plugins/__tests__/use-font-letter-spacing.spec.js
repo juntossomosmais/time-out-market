@@ -33,6 +33,8 @@ describe('font-letter-spacing rule', () => {
         rules: { 'plugin/use-font-letter-spacing': false },
       },
     })
+
+    expect(result.results[0].warnings).toHaveLength(0)
   })
 
   it('should rejects invalid CSS', async () => {
