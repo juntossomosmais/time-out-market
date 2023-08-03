@@ -52,9 +52,9 @@ describe('use-tokens rule', () => {
     )
   })
 
-  it('should not report variables', async () => {
+  it('should not report custom properties', async () => {
     const result = await stylelint.lint({
-      code: '.class { color: var(--color-primary); }',
+      code: '.class { --color-primary: #000; }',
       config,
     })
 
