@@ -5,6 +5,7 @@ module.exports = {
     'stylelint-scss',
     '@juntossomosmais/linters/stylelint/plugins/use-font-letter-spacing.js',
     '@juntossomosmais/linters/stylelint/plugins/use-tokens.js',
+    '@juntossomosmais/linters/stylelint/plugins/use-zindex-tokens.js',
   ],
   customSyntax: 'postcss-scss',
   rules: {
@@ -32,5 +33,6 @@ module.exports = {
     ],
     'plugin/use-font-letter-spacing': true,
     'plugin/use-tokens': true,
+    'plugin/use-zindex-tokens': true,
   },
 }
