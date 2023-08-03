@@ -12,10 +12,7 @@
     "access": "public"
   },
   "exports": {
-    "./*": "./*"
-  },
-  "scripts": {
-    "publish-library": "npm publish --access public"
+    "./*": "./src/*"
   },
   "peerDependencies": {
     "@commitlint/cli": ">= 17",

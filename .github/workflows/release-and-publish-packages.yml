@@ -64,7 +64,7 @@ jobs:
 
       - name: Install dependencies
         if: ${{ steps.release.outputs.releases_created }}
-        run: npm ci --legacy-peer-deps
+        run: npm ci --legacy-peer-deps --include=optional
 
       - name: Build and publish Linters
         if: ${{ steps.release.outputs['packages/linters--release_created'] }}
