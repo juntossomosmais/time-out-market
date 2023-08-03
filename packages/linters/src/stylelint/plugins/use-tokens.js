@@ -30,8 +30,8 @@ module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
 
       Object.entries(tokens).forEach(([tokenName, tokenValue]) => {
         const specificTokens = ['zindex', 'border-radius']
-        const isSpecificTokens = specificTokens.some((o) =>
-          tokenName.includes(o)
+        const isSpecificTokens = specificTokens.some((output) =>
+          tokenName.includes(output)
         )
 
         const regexPattern = new RegExp(
