@@ -4,6 +4,7 @@ module.exports = {
     'stylelint-order',
     'stylelint-scss',
     '@juntossomosmais/linters/stylelint/plugins/use-font-letter-spacing.js',
+    '@juntossomosmais/linters/stylelint/plugins/use-tokens.js',
   ],
   customSyntax: 'postcss-scss',
   rules: {
@@ -30,5 +31,6 @@ module.exports = {
       },
     ],
     'plugin/use-font-letter-spacing': true,
+    'plugin/use-tokens': true,
   },
 }
