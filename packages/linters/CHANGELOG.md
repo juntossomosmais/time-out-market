@@ -11,10 +11,6 @@
 * **linters:** add plugin to use tokens to zindex ([#13](https://github.com/juntossomosmais/time-out-market/issues/13)) ([360f035](https://github.com/juntossomosmais/time-out-market/commit/360f035831fcf6353a9a1d17bc7aab2afcd3169e))
 
 
-### Bug Fixes
-
-* **sonar:** change projectKey ([e041db5](https://github.com/juntossomosmais/time-out-market/commit/e041db5de1088717bed94c5d9706e6c4810f32e9))
-
 ## [0.2.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.1.0...linters-v0.2.0) (2023-07-24)
 
 
