@@ -29,8 +29,8 @@
     },
     "publish-package": {
       "executor": "nx:run-commands",
-      "cwd": "packages/linters",
       "options": {
+        "cwd": "packages/linters",
         "commands": [
           {
             "command": "npm publish --access public"
