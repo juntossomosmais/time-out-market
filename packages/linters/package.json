@@ -17,6 +17,10 @@
   "peerDependencies": {
     "@commitlint/cli": ">= 17",
     "@commitlint/config-conventional": ">= 17",
-    "prettier": ">= 3"
+    "@juntossomosmais/atomium-tokens": ">= 1",
+    "prettier": ">= 3",
+    "stylelint": ">= 15",
+    "stylelint-config-recommended": ">= 13",
+    "stylelint-order": ">= 6"
   }
 }
