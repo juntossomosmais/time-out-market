@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.3.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.2.0...linters-v0.3.0) (2023-08-04)
+
+
+### Features
+
+* **linters:** add basic config to stylelint ([#15](https://github.com/juntossomosmais/time-out-market/issues/15)) ([3bbc323](https://github.com/juntossomosmais/time-out-market/commit/3bbc323cceb3a4006a61926dadcc8b1935dc0549))
+* **linters:** add plugin to use letter-spacing with font ([#12](https://github.com/juntossomosmais/time-out-market/issues/12)) ([9b0c287](https://github.com/juntossomosmais/time-out-market/commit/9b0c28782e052ac61fa875b67452dcc43792e974))
+* **linters:** add plugin to use tokens  ([#11](https://github.com/juntossomosmais/time-out-market/issues/11)) ([eb2ccec](https://github.com/juntossomosmais/time-out-market/commit/eb2ccec8a8697d55a4efe19b62383cccfcc002ac))
+* **linters:** add plugin to use tokens to zindex ([#13](https://github.com/juntossomosmais/time-out-market/issues/13)) ([360f035](https://github.com/juntossomosmais/time-out-market/commit/360f035831fcf6353a9a1d17bc7aab2afcd3169e))
+
+
+### Bug Fixes
+
+* **sonar:** change projectKey ([e041db5](https://github.com/juntossomosmais/time-out-market/commit/e041db5de1088717bed94c5d9706e6c4810f32e9))
+
 ## [0.2.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.1.0...linters-v0.2.0) (2023-07-24)
 
 
