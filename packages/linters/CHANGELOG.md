@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.3.0...linters-v0.4.0) (2023-08-04)
+
+
+### Features
+
+* **linters:** add peerDependencies ([fa0f991](https://github.com/juntossomosmais/time-out-market/commit/fa0f99158623d2e864fd5260bcbfa8e29eb8ed39))
+
 ## [0.3.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.2.0...linters-v0.3.0) (2023-08-04)
 
 
