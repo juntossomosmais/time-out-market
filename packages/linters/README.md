@@ -11,6 +11,14 @@ Set of linters configs to be used in our JavaScript projects.
 
 ## Installation
 
+First you need to install peer dependencies:
+
+```bash
+npm i -D @commitlint/cli @commitlint/config-conventional @juntossomosmais/atomium-tokens prettier postcss stylelint stylelint-config-recommended stylelint-order
+```
+
+Then install the linters package:
+
 ```bash
 npm i -D @juntossomosmais/linters
 ```
@@ -35,6 +43,50 @@ Create a [`prettier`](https://prettier.io/) file in the root of your project wit
 module.exports = {
   ...require('@juntossomosmais/linters/prettier.config.js'),
   // Your custom config here
+}
+```
+
+### Stylelint
+
+#### CSS
+
+Create a [`stylelint`](https://stylelint.io/) file in the root of your project with the following content:
+
+```js
+module.exports = {
+  ...require('@juntossomosmais/linters/stylelint.config.js'),
+}
+```
+
+#### SCSS
+
+Install the following peer dependencies:
+
+```bash
+npm i -D postcss-scss stylelint-config-standard-scss
+```
+
+Create a [`stylelint`](https://stylelint.io/) file in the root of your project with the following content:
+
+```js
+module.exports = {
+  ...require('@juntossomosmais/linters/stylelint.config.scss.js'),
+}
+```
+
+#### Styled Components
+
+Install the following peer dependencies:
+
+```bash
+npm i -D postcss-styled-components
+```
+
+Create a [`stylelint`](https://stylelint.io/) file in the root of your project with the following content:
+
+```js
+module.exports = {
+  ...require('@juntossomosmais/linters/stylelint.config.styled.js'),
 }
 ```
 
