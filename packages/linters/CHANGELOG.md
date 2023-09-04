@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.4.0...linters-v0.5.0) (2023-09-04)
+
+
+### Features
+
+* **linters:** add stylelint to scss and styled-components ([#41](https://github.com/juntossomosmais/time-out-market/issues/41)) ([b928012](https://github.com/juntossomosmais/time-out-market/commit/b9280122551733a23229cb6536dbf16694ce49e6))
+
 ## [0.4.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.3.0...linters-v0.4.0) (2023-08-04)
 
 
