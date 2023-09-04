@@ -18,9 +18,13 @@
     "@commitlint/cli": ">= 17",
     "@commitlint/config-conventional": ">= 17",
     "@juntossomosmais/atomium-tokens": ">= 1",
+    "postcss-scss": "^4.0.7",
+    "postcss-styled-components": ">= 0",
+    "postcss": ">= 8",
     "prettier": ">= 3",
-    "stylelint": ">= 15",
     "stylelint-config-recommended": ">= 13",
-    "stylelint-order": ">= 6"
+    "stylelint-config-standard-scss": ">= 3",
+    "stylelint-order": ">= 6",
+    "stylelint": ">= 15"
   }
 }
