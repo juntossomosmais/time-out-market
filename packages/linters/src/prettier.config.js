@@ -4,6 +4,8 @@ const config = {
   endOfLine: 'lf',
   htmlWhitespaceSensitivity: 'css',
   insertPragma: false,
+  jsxBracketSameLine: false,
+  jsxSingleQuote: true,
   printWidth: 80,
   proseWrap: 'preserve',
   requirePragma: false,
