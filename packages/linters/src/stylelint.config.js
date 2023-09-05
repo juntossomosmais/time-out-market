@@ -8,7 +8,7 @@ module.exports = {
   ],
   rules: {
     'order/order': ['custom-properties', 'declarations'],
-    'no-descending-specificity': true,
+    'no-descending-specificity': null,
     'order/properties-alphabetical-order': true,
     'rule-empty-line-before': [
       'always-multi-line',
