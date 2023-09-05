@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.7.0...linters-v0.8.0) (2023-09-05)
+
+
+### Features
+
+* **linters:** use postcss-styled-syntax as customSyntax of stylelint ([15cf13f](https://github.com/juntossomosmais/time-out-market/commit/15cf13ffaa3f6876064ece71e7d2b8fad666c798))
+
 ## [0.7.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.6.0...linters-v0.7.0) (2023-09-05)
 
 
