@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.6.0...linters-v0.7.0) (2023-09-05)
+
+
+### Features
+
+* **linters:** remove no-descending-specificity ([352bf62](https://github.com/juntossomosmais/time-out-market/commit/352bf628b8cef7a8b2d80575fea659c72a3fd6a0))
+
 ## [0.6.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.5.0...linters-v0.6.0) (2023-09-05)
 
 
