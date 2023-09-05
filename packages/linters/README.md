@@ -79,7 +79,7 @@ module.exports = {
 Install the following peer dependencies:
 
 ```bash
-npm i -D postcss-styled-components
+npm i -D postcss-styled-syntax
 ```
 
 Create a [`stylelint`](https://stylelint.io/) file in the root of your project with the following content:
