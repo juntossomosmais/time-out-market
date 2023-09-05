@@ -4,7 +4,7 @@ const config = {
   endOfLine: 'lf',
   htmlWhitespaceSensitivity: 'css',
   insertPragma: false,
-  jsxBracketSameLine: false,
+  bracketSameLine: false,
   jsxSingleQuote: true,
   printWidth: 80,
   proseWrap: 'preserve',
