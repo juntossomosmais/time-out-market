@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.5.0...linters-v0.6.0) (2023-09-05)
+
+
+### Features
+
+* **linter:** add jsx configs to prettier ([e23a7d1](https://github.com/juntossomosmais/time-out-market/commit/e23a7d1b95045eda04746d2db30839ff99205937))
+
 ## [0.5.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.4.0...linters-v0.5.0) (2023-09-04)
 
 
