@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.8.0...linters-v0.9.0) (2023-09-05)
+
+
+### Features
+
+* **linters:** replace jsxBracketSameLine option with bracketSameLine option ([9b3d088](https://github.com/juntossomosmais/time-out-market/commit/9b3d08810b320b5b6b382b046bf34cb13f599801))
+
 ## [0.8.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.7.0...linters-v0.8.0) (2023-09-05)
 
 
