@@ -28,5 +28,6 @@ module.exports = {
     ],
     'declaration-block-single-line-max-declarations': 1,
     'declaration-block-semicolon-newline-after': 'always-multi-line',
+    'rule-empty-line-before': 'always',
   },
 }
