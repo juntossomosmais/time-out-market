@@ -26,5 +26,7 @@ module.exports = {
         ignorePseudoElements: ['/^v-deep/'],
       },
     ],
+    'declaration-block-single-line-max-declarations': 1,
+    'declaration-block-semicolon-newline-after': 'always-multi-line',
   },
 }
