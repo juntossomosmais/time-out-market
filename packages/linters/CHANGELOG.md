@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.9.0...linters-v0.10.0) (2023-09-15)
+
+
+### Features
+
+* **linters:** add stylelint new rules from frontend-guideline ([#48](https://github.com/juntossomosmais/time-out-market/issues/48)) ([6c81be0](https://github.com/juntossomosmais/time-out-market/commit/6c81be0b7b048edce89c261ab775066d5eb13010))
+
 ## [0.9.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.8.0...linters-v0.9.0) (2023-09-05)
 
 
