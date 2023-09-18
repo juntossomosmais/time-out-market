@@ -14,13 +14,14 @@ Set of linters configs to be used in our JavaScript projects.
 First you need to install peer dependencies:
 
 ```bash
-npm i -D @commitlint/cli @commitlint/config-conventional @juntossomosmais/atomium-tokens prettier postcss stylelint stylelint-config-recommended stylelint-order
+$ npm i -D @commitlint/cli @commitlint/config-conventional prettier postcss stylelint stylelint-config-recommended stylelint-order
+$ npm i @juntossomosmais/atomium-tokens
 ```
 
 Then install the linters package:
 
 ```bash
-npm i -D @juntossomosmais/linters
+$ npm i -D @juntossomosmais/linters
 ```
 
 ## Usage
@@ -63,7 +64,7 @@ module.exports = {
 Install the following peer dependencies:
 
 ```bash
-npm i -D postcss-scss stylelint-config-standard-scss
+$ npm i -D postcss-scss stylelint-config-standard-scss
 ```
 
 Create a [`stylelint`](https://stylelint.io/) file in the root of your project with the following content:
@@ -79,7 +80,7 @@ module.exports = {
 Install the following peer dependencies:
 
 ```bash
-npm i -D postcss-styled-syntax
+$ npm i -D postcss-styled-syntax
 ```
 
 Create a [`stylelint`](https://stylelint.io/) file in the root of your project with the following content:
