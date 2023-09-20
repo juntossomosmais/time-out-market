@@ -30,7 +30,6 @@
     "@commitlint/config-conventional": "^17.7.0",
     "@juntossomosmais/atomium-tokens": "^1.1.0",
     "@nrwl/cli": "15.9.3",
-    "@nrwl/eslint-plugin-nx": "^16.7.4",
     "@nrwl/workspace": "16.7.4",
     "@types/node": "20.5.9",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
