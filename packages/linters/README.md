@@ -46,6 +46,40 @@ module.exports = {
 }
 ```
 
+### ESLint
+
+Install the following peer dependencies:
+
+```bash
+npm i -D eslint eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-sonarjs @typescript-eslint/eslint-plugin @typescript-eslint/parser
+```
+
+Create a [`eslint`](https://eslint.org/) file in the root of your project with the following content:
+
+```js
+module.exports = {
+  ...require('@juntossomosmais/linters/eslint.config.js'),
+  // Your custom config here
+}
+```
+
+#### React
+
+Install the following peer dependencies:
+
+```bash
+npm i -D eslint-plugin-react eslint-plugin-react-hooks
+```
+
+Create a [`eslint`](https://eslint.org/) file in the root of your project with the following content:
+
+```js
+module.exports = {
+  ...require('@juntossomosmais/linters/eslint.config.react.js'),
+  // Your custom config here
+}
+```
+
 ### Stylelint
 
 #### CSS
