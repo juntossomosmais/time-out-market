@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     quotes: ['error', 'single', { avoidEscape: true }],
     eqeqeq: 'error',
+    'no-inline-comments': 'error',
     'no-async-promise-executor': 'error',
     'no-console': 'error',
     'no-prototype-builtins': 'error',
