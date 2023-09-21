@@ -20,6 +20,7 @@ module.exports = {
     },
   },
   rules: {
+    quotes: ['error', 'single', { avoidEscape: true }],
     'no-async-promise-executor': 'error',
     'no-console': 'error',
     'no-prototype-builtins': 'error',
