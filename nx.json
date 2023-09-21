@@ -24,7 +24,7 @@
       "dependencies": "*",
       "devDependencies": "*"
     },
-    ".eslintrc.json": "*",
+    ".eslintrc.js": "*",
     "tsconfig.base.json": "*",
     "nx.json": "*"
   },

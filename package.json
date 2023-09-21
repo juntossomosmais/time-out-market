@@ -13,7 +13,7 @@
     "packages/*"
   ],
   "scripts": {
-    "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c  ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
+    "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c  ./.eslintrc.js $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
     "lint:styles": "stylelint '**/*.scss'",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
