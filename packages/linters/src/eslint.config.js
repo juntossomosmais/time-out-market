@@ -66,16 +66,21 @@ module.exports = {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
-    'import/resolver': {
-      typescript: {
-        'babel-plugin-root-import': [
-          {
-            rootPathSuffix: './src',
-            rootPathPrefix: '~/',
-          },
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'index',
+          'sibling',
+          'parent',
+          'internal',
+          'external',
+          'builtin',
+          'object',
+          'type',
         ],
       },
-    },
+    ],
   },
   overrides: [
     {
