@@ -17,6 +17,8 @@ module.exports = {
         'perf',
       ],
     ],
-    'body-case': [2, 'always', ['lower-case']],
+    "body-leading-blank": [2, "always"],
+    "subject-case": [2, "always", ["lower-case"]],
+    "header-max-length": [2, "always", 72],
   },
 }
