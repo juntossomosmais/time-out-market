@@ -17,5 +17,6 @@ module.exports = {
         'perf',
       ],
     ],
+    'body-case': [2, 'always', ['lower-case']],
   },
 }
