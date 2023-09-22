@@ -14,7 +14,7 @@ Set of linters configs to be used in our JavaScript projects.
 First you need to install peer dependencies:
 
 ```bash
-npm i -D @commitlint/cli @commitlint/config-conventional @juntossomosmais/atomium-tokens prettier postcss stylelint stylelint-config-recommended stylelint-order
+npm i -D @commitlint/cli @commitlint/config-conventional @juntossomosmais/atomium-tokens prettier postcss stylelint stylelint-config-recommended stylelint-order eslint eslint-import-resolver-babel-plugin-root-import eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-sonarjs @typescript-eslint/eslint-plugin @typescript-eslint/parser
 ```
 
 Then install the linters package:
@@ -47,12 +47,6 @@ module.exports = {
 ```
 
 ### ESLint
-
-Install the following peer dependencies:
-
-```bash
-npm i -D eslint eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-sonarjs @typescript-eslint/eslint-plugin @typescript-eslint/parser
-```
 
 Create a [`eslint`](https://eslint.org/) file in the root of your project with the following content:
 
