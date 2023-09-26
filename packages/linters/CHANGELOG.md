@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.10.0...linters-v0.11.0) (2023-09-25)
+
+
+### Features
+
+* **linters:** add rule to ensure commit messages are always lower-case ([#50](https://github.com/juntossomosmais/time-out-market/issues/50)) ([0a2ce75](https://github.com/juntossomosmais/time-out-market/commit/0a2ce75bd1300b2217c25e32ca78ec9196c414c6))
+
 ## [0.10.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.9.0...linters-v0.10.0) (2023-09-15)
 
 
