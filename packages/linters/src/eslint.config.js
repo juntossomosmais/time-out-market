@@ -4,23 +4,21 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  root: true,
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:import/typescript',
     'plugin:sonarjs/recommended',
   ],
   plugins: ['import', 'sonarjs'],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
   },
   rules: {
-    quotes: ['error', 'single', { avoidEscape: true }],
     eqeqeq: 'error',
     'no-inline-comments': 'error',
     'no-async-promise-executor': 'error',
@@ -28,9 +26,8 @@ module.exports = {
     'no-prototype-builtins': 'error',
     'no-self-assign': 'error',
     'no-unreachable': 'error',
-    'no-useless-escape': 'error',
+    'no-useless-escape': 'off',
     'prefer-const': 'error',
-    semi: ['error', 'never'],
     'import/order': [
       'error',
       {
@@ -42,30 +39,22 @@ module.exports = {
           'sibling',
           'index',
         ],
-        'newlines-between': 'always',
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
         pathGroups: [
-          {
-            group: 'external',
-            pattern: 'react',
-            position: 'before',
-          },
           {
             group: 'internal',
             pattern: '~/**',
           },
         ],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
         pathGroupsExcludedImportTypes: ['react', 'vue'],
       },
     ],
   },
   settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-    },
     'import/order': [
       'error',
       {
@@ -79,20 +68,25 @@ module.exports = {
           'object',
           'type',
         ],
+        'newlines-between': 'always',
+        alphabetize: { order: 'asc', caseInsensitive: true },
       },
     ],
   },
   overrides: [
     {
-      files: ['*.json'],
-      parser: 'jsonc-eslint-parser',
-      rules: {},
-    },
-    {
       files: ['**/*.ts?(x)'],
       plugins: ['@typescript-eslint/eslint-plugin'],
-      extends: ['plugin:@typescript-eslint/recommended'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:import/typescript',
+      ],
       parser: '@typescript-eslint/parser',
+      settings: {
+        'import/parsers': {
+          '@typescript-eslint/parser': ['.ts', '.tsx'],
+        },
+      },
       rules: {
         '@typescript-eslint/no-unused-vars': [
           'error',
