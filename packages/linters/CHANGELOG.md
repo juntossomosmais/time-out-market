@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.11.0...linters-v0.12.0) (2023-09-27)
+
+
+### Features
+
+* **linters:** add configs to eslint ([#51](https://github.com/juntossomosmais/time-out-market/issues/51)) ([0fc72f9](https://github.com/juntossomosmais/time-out-market/commit/0fc72f97344fc0cf72b7c051261d29952c7b86a7))
+
 ## [0.11.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.10.0...linters-v0.11.0) (2023-09-25)
 
 
