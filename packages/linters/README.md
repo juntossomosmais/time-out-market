@@ -14,7 +14,7 @@ Set of linters configs to be used in our JavaScript projects.
 First you need to install peer dependencies:
 
 ```bash
-$ npm i -D @commitlint/cli @commitlint/config-conventional prettier postcss stylelint stylelint-config-recommended stylelint-order
+npm i -D @commitlint/cli @commitlint/config-conventional prettier postcss stylelint stylelint-config-recommended stylelint-order eslint eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-sonarjs @typescript-eslint/eslint-plugin @typescript-eslint/parser
 $ npm i @juntossomosmais/atomium-tokens
 ```
 
@@ -44,6 +44,46 @@ Create a [`prettier`](https://prettier.io/) file in the root of your project wit
 module.exports = {
   ...require('@juntossomosmais/linters/prettier.config.js'),
   // Your custom config here
+}
+```
+
+### ESLint
+
+Create a [`eslint`](https://eslint.org/) file in the root of your project with the following content:
+
+```js
+const baseConfig = require('@juntossomosmais/linters/eslint.config.js')
+
+module.exports = {
+  ...baseConfig,
+  rules: {
+    ...baseConfig.rules,
+    // Your custom rules here
+  },
+  // Your another custom config here
+}
+```
+
+#### React
+
+Install the following peer dependencies:
+
+```bash
+npm i -D eslint-plugin-react eslint-plugin-react-hooks
+```
+
+Create a [`eslint`](https://eslint.org/) file in the root of your project with the following content:
+
+```js
+const baseConfig = require('@juntossomosmais/linters/eslint.config.react.js')
+
+module.exports = {
+  ...baseConfig,
+  rules: {
+    ...baseConfig.rules,
+    // Your custom rules here
+  },
+  // Your another custom config here
 }
 ```
 
