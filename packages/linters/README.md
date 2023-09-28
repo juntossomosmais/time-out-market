@@ -64,6 +64,37 @@ module.exports = {
 }
 ```
 
+If you are using custom groups of `import/order` rules, you can use the following configs example:
+
+```js
+const baseConfig = require('@juntossomosmais/linters/eslint.config.js')
+
+module.exports = {
+  ...baseConfig,
+  rules: {
+    ...baseConfig.rules,
+        'import/order': [
+      'error',
+      {
+        ...baseConfig.rules['import/order'][1],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: '~/**',
+            group: 'internal',
+          },
+        ]
+      },
+    ],
+  },
+  // Your another custom config here
+}
+```
+
 #### React
 
 Install the following peer dependencies:
