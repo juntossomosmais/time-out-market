@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.12.0...linters-v0.13.0) (2023-09-28)
+
+
+### Features
+
+* **linters:** improve configs from import/order ([e72ecd3](https://github.com/juntossomosmais/time-out-market/commit/e72ecd3f7c784fe5e32be2733f8da2bf5566ef62))
+
 ## [0.12.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.11.0...linters-v0.12.0) (2023-09-27)
 
 
