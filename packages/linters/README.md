@@ -4,10 +4,16 @@ Set of linters configs to be used in our JavaScript projects.
 
 ## Shared linters
 
-- [ESLint](https://eslint.org/) configs
-- [Prettier](https://prettier.io/) configs
-- [Commitlint](https://commitlint.js.org/) configs
-- [Stylelint](https://stylelint.io/) configs
+<!-- TOC -->
+- [Commitlint](#commitlint)
+- [Prettier](#prettier)
+- [ESLint](#eslint)
+  - [React](#react)
+- [Stylelint](#stylelint)
+  - [CSS](#css)
+  - [SCSS](#scss)
+  - [Styled Components](#styled-components)
+<!-- /TOC -->
 
 ## Installation
 
@@ -15,13 +21,14 @@ First you need to install peer dependencies:
 
 ```bash
 npm i -D @commitlint/cli @commitlint/config-conventional prettier postcss stylelint stylelint-config-recommended stylelint-order eslint eslint-import-resolver-typescript eslint-import-resolver-babel-plugin-root-import eslint-plugin-import eslint-plugin-sonarjs @typescript-eslint/eslint-plugin @typescript-eslint/parser
-$ npm i @juntossomosmais/atomium-tokens
+
+npm i @juntossomosmais/atomium-tokens
 ```
 
 Then install the linters package:
 
 ```bash
-$ npm i -D @juntossomosmais/linters
+npm i -D @juntossomosmais/linters
 ```
 
 ## Usage
@@ -73,7 +80,7 @@ module.exports = {
   ...baseConfig,
   rules: {
     ...baseConfig.rules,
-        'import/order': [
+    'import/order': [
       'error',
       {
         ...baseConfig.rules['import/order'][1],
@@ -135,7 +142,7 @@ module.exports = {
 Install the following peer dependencies:
 
 ```bash
-$ npm i -D postcss-scss stylelint-config-standard-scss
+npm i -D postcss-scss stylelint-config-standard-scss
 ```
 
 Create a [`stylelint`](https://stylelint.io/) file in the root of your project with the following content:
@@ -151,7 +158,7 @@ module.exports = {
 Install the following peer dependencies:
 
 ```bash
-$ npm i -D postcss-styled-syntax
+npm i -D postcss-styled-syntax
 ```
 
 Create a [`stylelint`](https://stylelint.io/) file in the root of your project with the following content:
