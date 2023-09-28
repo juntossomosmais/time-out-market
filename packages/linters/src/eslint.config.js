@@ -39,37 +39,12 @@ module.exports = {
           'sibling',
           'index',
         ],
-        pathGroups: [
-          {
-            group: 'internal',
-            pattern: '~/**',
-          },
-        ],
         'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
           caseInsensitive: true,
         },
         pathGroupsExcludedImportTypes: ['react', 'vue'],
-      },
-    ],
-  },
-  settings: {
-    'import/order': [
-      'error',
-      {
-        groups: [
-          'index',
-          'sibling',
-          'parent',
-          'internal',
-          'external',
-          'builtin',
-          'object',
-          'type',
-        ],
-        'newlines-between': 'always',
-        alphabetize: { order: 'asc', caseInsensitive: true },
       },
     ],
   },

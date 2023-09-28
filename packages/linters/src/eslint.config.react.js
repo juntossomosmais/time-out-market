@@ -14,7 +14,6 @@ module.exports = {
     'react/prop-types': 'off',
   },
   settings: {
-    ...baseConfig.settings,
     react: {
       version: 'detect',
     },
