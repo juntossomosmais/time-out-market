@@ -31,7 +31,7 @@
     "@juntossomosmais/atomium-tokens": "^1.1.0",
     "@nrwl/cli": "15.9.3",
     "@nrwl/workspace": "16.7.4",
-    "@types/node": "20.5.9",
+    "@types/node": "20.8.0",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
     "babel-loader": "^9.1.3",
