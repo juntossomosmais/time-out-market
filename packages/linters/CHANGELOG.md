@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.14.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.13.0...linters-v0.14.0) (2023-10-02)
+
+
+### Features
+
+* **linters:** disable react/no-unescaped-entities ([2525214](https://github.com/juntossomosmais/time-out-market/commit/252521475ecc6bc960447ccdcdfd99b689cb7f4c))
+* **linters:** remove revert option from commit list ([#55](https://github.com/juntossomosmais/time-out-market/issues/55)) ([c4cd1fe](https://github.com/juntossomosmais/time-out-market/commit/c4cd1fe415b72813136a113bda0e23894aa69d78))
+
+
+### Bug Fixes
+
+* **linters:** remove duplicated rule ([dbe5519](https://github.com/juntossomosmais/time-out-market/commit/dbe55191a2617dcb541a05d3828ae5ff7a2066cd))
+
 ## [0.13.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.12.0...linters-v0.13.0) (2023-09-28)
 
 
