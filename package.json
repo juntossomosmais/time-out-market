@@ -52,7 +52,7 @@
   "optionalDependencies": {
     "@nx/nx-darwin-arm64": "16.9.1",
     "@nx/nx-darwin-x64": "16.7.4",
-    "@nx/nx-linux-x64-gnu": "16.7.4",
+    "@nx/nx-linux-x64-gnu": "16.9.1",
     "@nx/nx-win32-x64-msvc": "16.7.4"
   },
   "lint-staged": {
