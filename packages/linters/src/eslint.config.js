@@ -30,7 +30,10 @@ module.exports = {
     'prefer-const': 'error',
     'padding-line-between-statements': [
       'error',
+      { blankLine: 'always', prev: 'if', next: '*' },
       { blankLine: 'always', prev: '*', next: 'return' },
+      { blankLine: 'always', prev: '*', next: 'function' },
+      { blankLine: 'always', prev: 'function', next: '*' },
       { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
       {
         blankLine: 'any',
