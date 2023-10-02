@@ -12,6 +12,7 @@ module.exports = {
     ...baseConfig.rules,
     'react/display-name': 'off',
     'react/prop-types': 'off',
+    'react/no-unescaped-entities': 'off',
   },
   settings: {
     react: {
