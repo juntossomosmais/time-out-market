@@ -32,7 +32,7 @@ This project aims to create a market of shared JavaScript libraries to help you 
 
 ### Local testing using NPM Link
 
-To locally test any library you could use NPM Link following the steps below:
+You can use the NPM Link to locally test any library. To illustrate, follow the steps below:
 
 Link the library by navigating to the `node_modules/@juntossomosmais/library-name` directory, example:
 
