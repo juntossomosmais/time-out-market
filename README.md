@@ -15,7 +15,7 @@
 
 ## About
 
-The idea of this project is to create a market of shared JavaScript libraries to help you save time and effort. The libraries are created by [Juntos Somos Mais](https://github.com/juntossomosmais) community and can be used in our internal projects.
+This project aims to create a market of shared JavaScript libraries to help you save time and effort. The libraries are created by [Juntos Somos Mais](https://github.com/juntossomosmais) community and can be used in our internal projects.
 
 ## Packages
 
