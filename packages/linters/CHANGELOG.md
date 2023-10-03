@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.14.0...linters-v0.15.0) (2023-10-03)
+
+
+### Features
+
+* **linters:** add padding-line-between-statements ([#68](https://github.com/juntossomosmais/time-out-market/issues/68)) ([cbb218e](https://github.com/juntossomosmais/time-out-market/commit/cbb218e7ca03c5e8d79a0845d1df2deac1ba2cdb))
+
 ## [0.14.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.13.0...linters-v0.14.0) (2023-10-02)
 
 
