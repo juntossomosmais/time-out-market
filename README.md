@@ -47,7 +47,7 @@ Import library into your project by linking it using NPM Link. Navigate to your 
 npm link @juntossomosmais/linters
 ```
 
-This will create a symbolic link between your project and the locally library.
+This will create a symbolic link between your project and the local library.
 
 Now you can use test the modifications in your project and test them locally. Make sure to revert these changes and remove the NPM Link when you're done testing to avoid any conflicts or unexpected behavior with the actual installed version of library in your project.
 
