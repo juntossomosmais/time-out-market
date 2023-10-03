@@ -28,6 +28,21 @@ module.exports = {
     'no-unreachable': 'error',
     'no-useless-escape': 'off',
     'prefer-const': 'error',
+    'padding-line-between-statements': [
+      'error',
+      { blankLine: 'always', prev: 'if', next: '*' },
+      { blankLine: 'always', prev: '*', next: 'return' },
+      { blankLine: 'always', prev: '*', next: 'function' },
+      { blankLine: 'always', prev: 'function', next: '*' },
+      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+      {
+        blankLine: 'any',
+        prev: ['const', 'let', 'var'],
+        next: ['const', 'let', 'var'],
+      },
+      { blankLine: 'always', prev: 'directive', next: '*' },
+      { blankLine: 'any', prev: 'directive', next: 'directive' },
+    ],
     'import/order': [
       'error',
       {
