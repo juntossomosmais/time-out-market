@@ -1,3 +1,5 @@
+![readme-logo](https://github.com/juntossomosmais/time-out-market/assets/20569339/5661c72c-cee6-49d4-b89c-4fd8eb15a266)
+
 <div align="center">
   <h1>Time Out Market</h1>
   <p>
