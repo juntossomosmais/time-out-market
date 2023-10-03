@@ -34,7 +34,7 @@ This project aims to create a market of shared JavaScript libraries to help you 
 
 You can use the NPM Link to locally test any library. To illustrate, follow the steps below:
 
-Link the library by navigating to the `node_modules/@juntossomosmais/library-name` directory, example:
+Link the library by navigating to the `node_modules/@juntossomosmais/library-name` directory, for example:
 
 ```bash
 cd node_modules/@juntossomosmais/linters
