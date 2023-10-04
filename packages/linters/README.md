@@ -1,4 +1,21 @@
-# Time Out Market - Linters
+<div align="center">
+  <h1>Time Out Market - Linters</h1>
+  <p>
+    <a href="https://github.com/juntossomosmais/time-out-market/releases">
+      <img src="https://img.shields.io/github/package-json/v/juntossomosmais/time-out-market?filename=packages%2Flinters%2Fpackage.json" alt="version">
+    </a>
+    <img
+      alt="Quality Gate"
+      src="https://sonarcloud.io/api/project_badges/measure?project=juntossomosmais_time-out-market-linters&metric=alert_status&token=c9d6442485c01c9643b62d84f45a1491dd0d21b1"
+    />
+    <img
+      alt="Coverage"
+      src="https://sonarcloud.io/api/project_badges/measure?project=juntossomosmais_time-out-market-linters&metric=coverage&token=c9d6442485c01c9643b62d84f45a1491dd0d21b1"
+    />
+  </p>
+  <br />
+</div>
+
 
 Set of linters configs to be used in our JavaScript projects.
 
