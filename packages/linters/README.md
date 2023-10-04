@@ -16,8 +16,9 @@
   <br />
 </div>
 
+> Set of linters configs to be used in our JavaScript projects.
 
-Set of linters configs to be used in our JavaScript projects.
+All linters configs are based on our [Front-end Guideline](https://github.com/juntossomosmais/frontend-guideline)
 
 ## Shared linters
 
