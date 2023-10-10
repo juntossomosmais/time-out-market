@@ -187,3 +187,9 @@ module.exports = {
 }
 ```
 
+If you use VSCode, make sure you have installed the extension [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) and add the following configuration in your settings.json file:
+
+```json
+"stylelint.validate": ["postcss", "javascript"]
+```
+
