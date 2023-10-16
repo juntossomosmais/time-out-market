@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.15.0...linters-v0.16.0) (2023-10-11)
+
+
+### Features
+
+* **linters:** disable media-query-no-invalid ([#71](https://github.com/juntossomosmais/time-out-market/issues/71)) ([2aa8d76](https://github.com/juntossomosmais/time-out-market/commit/2aa8d762ab977001a78d7c03cdd3beb1d50a020e))
+
 ## [0.15.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.14.0...linters-v0.15.0) (2023-10-03)
 
 
