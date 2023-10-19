@@ -13,6 +13,8 @@ module.exports = {
     'react/display-name': 'off',
     'react/prop-types': 'off',
     'react/no-unescaped-entities': 'off',
+    'react/jsx-uses-react': 'on',
+    'react/react-in-jsx-scope': 'on',
   },
   settings: {
     react: {
