@@ -15,6 +15,7 @@ module.exports = {
     'react/no-unescaped-entities': 'off',
     'react/jsx-uses-react': 'on',
     'react/react-in-jsx-scope': 'on',
+    'react/jsx-boolean-value': ['error', 'always'],
   },
   settings: {
     react: {
