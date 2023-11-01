@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.17.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.16.0...linters-v0.17.0) (2023-11-01)
+
+
+### Features
+
+* **linters:** add `jsx-boolean-value` in `eslint.config.react` ([#76](https://github.com/juntossomosmais/time-out-market/issues/76)) ([6a1a745](https://github.com/juntossomosmais/time-out-market/commit/6a1a745aee3e9d994d7577d37e8d85ebe06baf8e))
+* **linters:** add rules to jsx to react lint ([#74](https://github.com/juntossomosmais/time-out-market/issues/74)) ([1706cfc](https://github.com/juntossomosmais/time-out-market/commit/1706cfc5b4c63f49ff49b7b7395209a3344d0a7c))
+
 ## [0.16.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.15.0...linters-v0.16.0) (2023-10-11)
 
 
