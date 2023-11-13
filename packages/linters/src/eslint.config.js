@@ -19,17 +19,17 @@ module.exports = {
     },
   },
   rules: {
-    eqeqeq: 'error',
-    'no-inline-comments': 'error',
-    'no-async-promise-executor': 'error',
-    'no-console': 'error',
-    'no-prototype-builtins': 'error',
-    'no-self-assign': 'error',
-    'no-unreachable': 'error',
-    'no-useless-escape': 'off',
-    'prefer-const': 'error',
+    eqeqeq: 2,
+    'no-inline-comments': 2,
+    'no-async-promise-executor': 2,
+    'no-console': 2,
+    'no-prototype-builtins': 2,
+    'no-self-assign': 2,
+    'no-unreachable': 2,
+    'no-useless-escape': 0,
+    'prefer-const': 2,
     'padding-line-between-statements': [
-      'error',
+      2,
       { blankLine: 'always', prev: 'if', next: '*' },
       { blankLine: 'always', prev: '*', next: 'return' },
       { blankLine: 'always', prev: '*', next: 'function' },
@@ -44,7 +44,7 @@ module.exports = {
       { blankLine: 'any', prev: 'directive', next: 'directive' },
     ],
     'import/order': [
-      'error',
+      2,
       {
         groups: [
           'builtin',
@@ -79,12 +79,12 @@ module.exports = {
       },
       rules: {
         '@typescript-eslint/no-unused-vars': [
-          'error',
+          2,
           {
             varsIgnorePattern: '^h$',
           },
         ],
-        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-explicit-any': 2,
       },
     },
   ],

@@ -10,12 +10,12 @@ module.exports = {
   plugins: [...baseConfig.plugins, 'react', 'react-hooks'],
   rules: {
     ...baseConfig.rules,
-    'react/display-name': 'off',
-    'react/prop-types': 'off',
-    'react/no-unescaped-entities': 'off',
-    'react/jsx-uses-react': 'on',
-    'react/react-in-jsx-scope': 'on',
-    'react/jsx-boolean-value': ['error', 'always'],
+    'react/display-name': 0,
+    'react/prop-types': 0,
+    'react/no-unescaped-entities': 0,
+    'react/jsx-uses-react': 1,
+    'react/react-in-jsx-scope': 1,
+    'react/jsx-boolean-value': [2, 'always'],
   },
   settings: {
     react: {
