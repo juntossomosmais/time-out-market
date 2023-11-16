@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.1](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.17.0...linters-v0.17.1) (2023-11-16)
+
+
+### Bug Fixes
+
+* update linters config ([#88](https://github.com/juntossomosmais/time-out-market/issues/88)) ([160cfaf](https://github.com/juntossomosmais/time-out-market/commit/160cfaf87baf262b79fca4be0f26ef209522a360))
+
 ## [0.17.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.16.0...linters-v0.17.0) (2023-11-01)
 
 
