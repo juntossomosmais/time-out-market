@@ -25,7 +25,7 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-typescript": "^7.23.2",
     "@commitlint/cli": "^17.7.2",
-    "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/config-conventional": "^18.4.3",
     "@juntossomosmais/atomium-tokens": "^1.1.0",
     "@nrwl/cli": "15.9.3",
     "@nrwl/workspace": "17.0.2",
