@@ -21,7 +21,7 @@
     "test:ci-merge": "npx nx affected --target=test:ci --base=origin/main~1 --head=origin/main --parallel"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.15",
+    "@babel/core": "^7.23.5",
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-typescript": "^7.23.2",
     "@commitlint/cli": "^17.7.2",
