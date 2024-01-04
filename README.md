@@ -51,7 +51,11 @@ npm link @juntossomosmais/linters
 
 This will create a symbolic link between your project and the local library.
 
-Now, you can test the modifications in your project locally. Make sure to revert these changes and remove the NPM Link when you're done testing to avoid any conflicts or unexpected behavior with the actual installed library version in your project.
+Now, you can test the modifications in your project locally. Make sure to revert these changes and remove the NPM Link when you're done testing to avoid any conflicts or unexpected behavior with the actual installed library version in your project by running:
+
+```bash
+npm unlink
+```
 
 Following these steps, you can quickly test and verify any customizations or modifications you have made to the library locally using NPM Link.
 
