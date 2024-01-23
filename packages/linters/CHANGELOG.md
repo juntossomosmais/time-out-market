@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.17.1...linters-v0.18.0) (2024-01-23)
+
+
+### Features
+
+* **linters:** enable es2021 to lint ([#104](https://github.com/juntossomosmais/time-out-market/issues/104)) ([3b2721d](https://github.com/juntossomosmais/time-out-market/commit/3b2721da34fc7518061b0b79e855a8107ecd47dc))
+
 ## [0.17.1](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.17.0...linters-v0.17.1) (2023-11-16)
 
 
