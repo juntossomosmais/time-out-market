@@ -52,7 +52,7 @@
     "@nx/nx-darwin-arm64": "17.3.1",
     "@nx/nx-darwin-x64": "17.3.1",
     "@nx/nx-linux-x64-gnu": "17.3.1",
-    "@nx/nx-win32-x64-msvc": "17.3.1"
+    "@nx/nx-win32-x64-msvc": "18.0.6"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
