@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.1](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.18.0...linters-v0.18.1) (2024-04-16)
+
+
+### Bug Fixes
+
+* **linters:** remove deprecated rule ([1cd9e5b](https://github.com/juntossomosmais/time-out-market/commit/1cd9e5bf0c4d95d06491be52d8187ea5f07e29cc))
+
 ## [0.18.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.17.1...linters-v0.18.0) (2024-01-23)
 
 
