@@ -43,7 +43,7 @@
     "lint-staged": "^15.2.2",
     "nx": "18.3.4",
     "prettier": "3.2.5",
-    "stylelint": "^15.11.0",
+    "stylelint": "^16.6.1",
     "stylelint-config-recommended": "^14.0.0",
     "stylelint-order": "^6.0.4",
     "typescript": "^5.4.5"
