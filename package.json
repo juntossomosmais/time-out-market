@@ -28,7 +28,7 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@juntossomosmais/atomium-tokens": "^1.2.0",
     "@nrwl/cli": "^15.9.7",
-    "@nrwl/workspace": "18.3.4",
+    "@nrwl/workspace": "19.1.1",
     "@types/node": "20.12.8",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
