@@ -1,5 +1,5 @@
-const stylelint = require('stylelint')
 const tokens = require('@juntossomosmais/atomium-tokens/tokens.json')
+const stylelint = require('stylelint')
 
 const ruleName = 'plugin/use-tokens'
 const messages = stylelint.utils.ruleMessages(ruleName, {
@@ -40,6 +40,7 @@ module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
           })(\\s|;|$)`,
           'g'
         )
+
         if (!isSpecificTokens && regexPattern.test(decl.value)) {
           stylelint.utils.report({
             message: messages.useToken({ tokenName, tokenValue }),

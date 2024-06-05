@@ -1,5 +1,5 @@
-const stylelint = require('stylelint')
 const tokens = require('@juntossomosmais/atomium-tokens/tokens.json')
+const stylelint = require('stylelint')
 
 const ruleName = 'plugin/use-zindex-tokens'
 const messages = stylelint.utils.ruleMessages(ruleName, {
@@ -30,6 +30,7 @@ module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
       if (decl.prop !== 'z-index') return
 
       const zIndexValue = parseInt(decl.value, 10)
+
       if (!isNaN(zIndexValue)) {
         const tokenName = Object.keys(tokens).find(
           (key) =>

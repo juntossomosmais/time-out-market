@@ -1,5 +1,6 @@
-const { messages } = require('../use-zindex-tokens')
 const stylelint = require('stylelint')
+
+const { messages } = require('../use-zindex-tokens')
 
 const validCss = '.class { z-index: var(--zindex-1); }'
 const invalidCss = '.class { z-index: 10; }'

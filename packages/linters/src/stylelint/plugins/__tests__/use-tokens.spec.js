@@ -1,5 +1,6 @@
-const { messages } = require('../use-tokens')
 const stylelint = require('stylelint')
+
+const { messages } = require('../use-tokens')
 
 const validCss = '.class { color: var(--color-primary); }'
 const invalidCss = '.class { color: #fff; }'
@@ -84,6 +85,7 @@ describe('use-tokens rule', () => {
       code: '.class { border-radius: 8px; }',
       config,
     })
+
     expect(result.results[0].warnings[0].text).not.toBe(
       messages.useToken({ tokenName: 'border-radius', tokenValue: '4px' })
     )
