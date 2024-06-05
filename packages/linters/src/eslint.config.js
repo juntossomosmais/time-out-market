@@ -9,7 +9,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:sonarjs/recommended',
+    'plugin:sonarjs/recommended-legacy',
   ],
   plugins: ['import', 'sonarjs'],
   parserOptions: {
