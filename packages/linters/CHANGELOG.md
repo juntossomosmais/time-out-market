@@ -1,7 +1,17 @@
 # Changelog
 
-## [0.18.1](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.18.0...linters-v0.18.1) (2024-04-16)
+## [0.19.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.18.1...linters-v0.19.0) (2024-06-05)
 
+
+### Features
+
+* **deps:** bump dependencies and add the correct version for each dependency  ([#196](https://github.com/juntossomosmais/time-out-market/issues/196)) ([48cc569](https://github.com/juntossomosmais/time-out-market/commit/48cc569b5c989712cfb2b1b7dafba139895f724f))
+
+#### Breaking Changes
+
+- We need to update `eslint-plugin-sonarjs` to version > `1.x.x` to keep the compatibility with the other dependencies.
+
+## [0.18.1](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.18.0...linters-v0.18.1) (2024-04-16)
 
 ### Bug Fixes
 
