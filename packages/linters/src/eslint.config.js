@@ -21,6 +21,7 @@ module.exports = {
   },
   rules: {
     eqeqeq: 2,
+    'object-curly-spacing': ['error', 'always'],
     'no-inline-comments': 2,
     'no-async-promise-executor': 2,
     'no-console': 2,
