@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.19.0...linters-v0.20.0) (2024-07-11)
+
+
+### Features
+
+* **linters:** add rule to object-curly-spacing ([#208](https://github.com/juntossomosmais/time-out-market/issues/208)) ([dd24db5](https://github.com/juntossomosmais/time-out-market/commit/dd24db5c8056b1f9bf63208f730061d927a98c8a))
+
 ## [0.19.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.18.1...linters-v0.19.0) (2024-06-05)
 
 
