@@ -64,6 +64,7 @@ module.exports = {
         pathGroupsExcludedImportTypes: ['react', 'vue'],
       },
     ],
+    'no-undef': 'error',
   },
   overrides: [
     {
