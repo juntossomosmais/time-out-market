@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.20.0...linters-v0.21.0) (2024-08-01)
+
+
+### Features
+
+* **linters:** add no undef rule to break ([#223](https://github.com/juntossomosmais/time-out-market/issues/223)) ([3b926af](https://github.com/juntossomosmais/time-out-market/commit/3b926afa201305b99be219fdbf8f4a45306ee36c))
+
 ## [0.20.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.19.0...linters-v0.20.0) (2024-07-11)
 
 
