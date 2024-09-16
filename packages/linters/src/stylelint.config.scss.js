@@ -8,19 +8,6 @@ module.exports = {
         ignoreFunctions: ['map-merge'],
       },
     ],
-    'at-rule-no-unknown': [
-      true,
-      {
-        ignoreAtRules: [
-          'at-root',
-          'function',
-          'if',
-          'each',
-          'include',
-          'mixin',
-          'extend',
-        ],
-      },
-    ],
+    'at-rule-no-unknown': null
   },
 }
