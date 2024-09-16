@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.21.0...linters-v0.22.0) (2024-09-16)
+
+
+### Features
+
+* **linters:** use null for at rule no unknown in scss ([#240](https://github.com/juntossomosmais/time-out-market/issues/240)) ([b723dce](https://github.com/juntossomosmais/time-out-market/commit/b723dced511f99543e2cb859f63dd0e60c0e3f00))
+
 ## [0.21.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.20.0...linters-v0.21.0) (2024-08-01)
 
 
