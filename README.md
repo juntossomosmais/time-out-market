@@ -22,6 +22,8 @@ This project aims to create a market of shared JavaScript libraries to help you 
 ## Packages
 
 - [Linters](packages/linters/README.md) - A set of linters configs to be used in our JavaScript projects
+- [http-front-cache](packages/http-front-cache/README.md) - Utility was created to provide a simple and efficient way to cache the results of service functions in the browser
+
 
 ## Development
 
