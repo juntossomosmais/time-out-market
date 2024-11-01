@@ -88,3 +88,17 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: packages/linters/
+
+      - name: Check coverage directory - http-front-cache
+        run: |
+          chmod +x ./.github/workflows/check-coverage.sh
+          ./.github/workflows/check-coverage.sh http-front-cache
+
+      - name: SonarCloud Scan - http-front-cache 🚨
+        if: env.COVERAGE_HTTP_FRONT_CACHE == 'true'
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: packages/http-front-cache/
