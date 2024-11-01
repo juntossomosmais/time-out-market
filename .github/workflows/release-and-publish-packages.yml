@@ -64,10 +64,14 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         run: npm ci --legacy-peer-deps --include=optional
 
-      - name: Build and publish Linters
-        if: ${{ steps.release.outputs['packages/linters--release_created'] }}
+      - name: show affected packages
+        if: ${{ steps.release.outputs.releases_created }}
         run: |
-          npx nx run @juntossomosmais/linters:publish-package
+          npx nx show projects --affected
+
+      - name: Build and publish affected packages
+        run: |
+          npm run publish-package
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

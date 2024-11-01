@@ -1,8 +1,7 @@
 #!/bin/bash
-
 directory=$1
 
-directory_upper=$(echo "$directory" | tr '[:lower:]' '[:upper:]')
+directory_upper=$(echo "$directory" | tr '-' '_' | tr '[:lower:]' '[:upper:]')
 
 if [ -d "packages/$directory/coverage" ]; then
   echo "Coverage directory exists for $directory."
