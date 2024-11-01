@@ -57,8 +57,5 @@
     "*.scss": [
       "stylelint --fix"
     ]
-  },
-  "nx": {
-    "includedScripts": []
   }
 }
