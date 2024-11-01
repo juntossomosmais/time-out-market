@@ -5,27 +5,33 @@
   "projectType": "library",
   "tags": [],
   "targets": {
-    "test:ci": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+    "test": {
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "packages/http-front-cache/jest.config.ts",
-        "passWithNoTests": true,
-        "codeCoverage": true
+        "cwd": "packages/http-front-cache",
+        "commands": [
+          {
+            "command": "jest"
+          }
+        ]
       }
     },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+    "test:ci": {
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "packages/http-front-cache/jest.config.ts"
+        "cwd": "packages/http-front-cache",
+        "commands": [
+          {
+            "command": "jest --coverage --ci --passWithNoTests"
+          }
+        ]
       }
     },
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/http-front-cache",
+        "outputPath": "packages/http-front-cache/dist",
         "main": "packages/http-front-cache/src/index.ts",
         "tsConfig": "packages/http-front-cache/tsconfig.lib.json",
         "assets": ["packages/http-front-cache/*.md"]

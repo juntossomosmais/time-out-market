@@ -1,6 +1,6 @@
-import { cacheFactory } from './cache-factory';
-import { ServiceFunction } from './types';
-import { sessionStorageProvider } from './providers/session-storage';
+import { cacheFactory } from './cache-factory'
+import { sessionStorageProvider } from './providers/session-storage'
+import { ServiceFunction } from './types'
 
 /**
  * BE CAREFUL ON USE IT!!! Use the following constraints to understand when to use it:
@@ -23,6 +23,6 @@ export const cacheOnSessionStorage = <TParams extends unknown[], TResult>(
       expire,
       serviceFunction,
       provider: sessionStorageProvider,
-    });
-  };
-};
+    })
+  }
+}

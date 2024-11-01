@@ -1,12 +1,12 @@
-import { cacheFactory } from './cache-factory';
-import { Provider } from './types';
-import pako from 'pako';
-import hash from 'object-hash';
+import hash from 'object-hash'
+import pako from 'pako'
+import { cacheFactory } from './cache-factory'
+import { Provider } from './types'
 
-const defaultParams = { param: 'test' };
-const defaultHashedParams = hash([defaultParams]);
-const biggerParams = { param: 'test', param2: 'test', param3: 'test' };
-const biggerHashedParams = hash([biggerParams]);
+const defaultParams = { param: 'test' }
+const defaultHashedParams = hash([defaultParams])
+const biggerParams = { param: 'test', param2: 'test', param3: 'test' }
+const biggerHashedParams = hash([biggerParams])
 const defaultResponse = {
   login: 'tassioFront',
   avatar_url: 'https://avatars.githubusercontent.com/u/47509510?v=4',
@@ -39,31 +39,31 @@ const defaultResponse = {
   following: 77,
   created_at: '2019-02-10T23:25:10Z',
   updated_at: '2024-10-01T12:19:58Z',
-};
+}
 const mockServiceFunction = jest.fn(async (param: any) => {
-  return defaultResponse;
-});
+  return defaultResponse
+})
 
-const expireTime = 5 * 60 * 1000;
+const expireTime = 5 * 60 * 1000
 
-const provider: Record<string, string> = {};
+const provider: Record<string, string> = {}
 
 const mockProvider: Provider = {
   getItem: (key) => provider[key] as unknown as Uint8Array,
   setItem: (key, value) => {
     // @ts-ignore
-    provider[key] = value;
+    provider[key] = value
   },
   removeItem: (key) => {
-    delete provider[key];
+    delete provider[key]
   },
   //@ts-ignore
   clear: () => {
     Object.keys(provider).forEach((key) => {
-      delete provider[key];
-    });
+      delete provider[key]
+    })
   },
-};
+}
 
 const cachedServiceFunction = (params: any) => {
   return cacheFactory({
@@ -71,31 +71,31 @@ const cachedServiceFunction = (params: any) => {
     expire: expireTime,
     serviceFunction: mockServiceFunction,
     provider: mockProvider,
-  });
-};
+  })
+}
 
 describe('cacheFactory', () => {
   beforeEach(() => {
     // @ts-ignore
-    mockProvider.clear();
-    jest.clearAllMocks();
-  });
+    mockProvider.clear()
+    jest.clearAllMocks()
+  })
 
   it('should call the service function and cache the result', async () => {
-    const result = await cachedServiceFunction(defaultParams);
+    const result = await cachedServiceFunction(defaultParams)
 
-    expect(result).toEqual(defaultResponse);
-    expect(mockServiceFunction).toHaveBeenCalledTimes(1);
+    expect(result).toEqual(defaultResponse)
+    expect(mockServiceFunction).toHaveBeenCalledTimes(1)
 
-    const cachedEntry = mockProvider.getItem(defaultHashedParams);
-    expect(cachedEntry).not.toBeNull();
+    const cachedEntry = mockProvider.getItem(defaultHashedParams)
+    expect(cachedEntry).not.toBeNull()
 
     const decompressedEntry = pako.inflate(cachedEntry, {
       to: 'string',
-    });
-    const entry = JSON.parse(decompressedEntry);
-    expect(entry.data).toEqual(defaultResponse);
-  });
+    })
+    const entry = JSON.parse(decompressedEntry)
+    expect(entry.data).toEqual(defaultResponse)
+  })
 
   test.each([
     [defaultParams, defaultHashedParams],
@@ -103,47 +103,47 @@ describe('cacheFactory', () => {
   ])(
     'should call the service function again if the cache has expired and remove the data from the storage',
     async (params, hashedParams) => {
-      await cachedServiceFunction(params);
+      await cachedServiceFunction(params)
 
-      const cachedEntry = mockProvider.getItem(hashedParams);
+      const cachedEntry = mockProvider.getItem(hashedParams)
       const decompressedEntry = pako.inflate(cachedEntry, {
         to: 'string',
-      });
-      const entry = JSON.parse(decompressedEntry);
+      })
+      const entry = JSON.parse(decompressedEntry)
 
       // forcing the cache to expire
-      entry.timestamp -= expireTime + 1;
-      const expiredCompressedEntry = pako.deflate(JSON.stringify(entry));
-      mockProvider.setItem(hashedParams, expiredCompressedEntry);
+      entry.timestamp -= expireTime + 1
+      const expiredCompressedEntry = pako.deflate(JSON.stringify(entry))
+      mockProvider.setItem(hashedParams, expiredCompressedEntry)
 
-      const result = await cachedServiceFunction(params);
-      expect(result).toEqual(defaultResponse);
-      expect(mockServiceFunction).toHaveBeenCalledTimes(2);
-      expect(mockProvider.getItem(hashedParams)).not.toBeNull();
+      const result = await cachedServiceFunction(params)
+      expect(result).toEqual(defaultResponse)
+      expect(mockServiceFunction).toHaveBeenCalledTimes(2)
+      expect(mockProvider.getItem(hashedParams)).not.toBeNull()
     }
-  );
+  )
 
   it('Should not call the service function again if cache is available', async () => {
-    await cachedServiceFunction(defaultParams);
-    expect(mockServiceFunction).toHaveBeenCalledTimes(1);
-    await cachedServiceFunction(defaultParams);
-    expect(mockServiceFunction).toHaveBeenCalledTimes(1);
-  });
+    await cachedServiceFunction(defaultParams)
+    expect(mockServiceFunction).toHaveBeenCalledTimes(1)
+    await cachedServiceFunction(defaultParams)
+    expect(mockServiceFunction).toHaveBeenCalledTimes(1)
+  })
 
   it('should not set data in the cache if the service function throws an error', async () => {
     mockServiceFunction.mockImplementationOnce(async () => {
-      throw new Error('Error');
-    });
-    let errorMessage = '';
+      throw new Error('Error')
+    })
+    let errorMessage = ''
 
     try {
-      await cachedServiceFunction(defaultParams);
+      await cachedServiceFunction(defaultParams)
     } catch (e) {
-      errorMessage = (e as Error).message;
+      errorMessage = (e as Error).message
     }
 
-    expect(mockServiceFunction).toHaveBeenCalledTimes(1);
-    expect(errorMessage).toBe('Error');
-    expect(mockProvider.getItem(defaultHashedParams)).toBeUndefined();
-  });
-});
+    expect(mockServiceFunction).toHaveBeenCalledTimes(1)
+    expect(errorMessage).toBe('Error')
+    expect(mockProvider.getItem(defaultHashedParams)).toBeUndefined()
+  })
+})
