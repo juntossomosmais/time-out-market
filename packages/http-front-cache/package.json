@@ -1,0 +1,25 @@
+{
+  "name": "@juntossomosmais/http-front-cache",
+  "version": "0.0.1",
+  "dependencies": {
+    "object-hash": "^3.0.0",
+    "pako": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/object-hash": "^3.0.6",
+    "@types/pako": "^2.0.3"
+  },
+  "type": "commonjs",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "typings": "./index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juntossomosmais/time-out-market.git",
+    "directory": "packages/http-front-cache"
+  },
+  "publishConfig": {
+    "@juntossomosmais:registry": "https://npm.pkg.github.com",
+    "access": "public"
+  }
+}

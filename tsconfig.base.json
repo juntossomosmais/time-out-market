@@ -11,7 +11,12 @@
     "experimentalDecorators": true,
     "target": "es6",
     "sourceMap": true,
-    "lib": ["es6"]
+    "lib": ["es6"],
+    "paths": {
+      "@juntossomosmais/http-front-cache": [
+        "packages/http-front-cache/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "**/*.spec.ts", "**/__tests__/**"]
 }
