@@ -1,0 +1,53 @@
+{
+  "name": "http-front-cache",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/http-front-cache/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/http-front-cache",
+        "commands": [
+          {
+            "command": "jest"
+          }
+        ]
+      }
+    },
+    "test:ci": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/http-front-cache",
+        "commands": [
+          {
+            "command": "jest --coverage --ci --passWithNoTests"
+          }
+        ]
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/http-front-cache/dist",
+        "main": "packages/http-front-cache/src/index.ts",
+        "tsConfig": "packages/http-front-cache/tsconfig.lib.json",
+        "assets": ["packages/http-front-cache/*.md"]
+      }
+    },
+    "publish-package": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/http-front-cache",
+        "commands": [
+          {
+            "command": "npm publish --access public"
+          }
+        ]
+      }
+    }
+  }
+}
