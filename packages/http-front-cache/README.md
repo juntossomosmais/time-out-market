@@ -16,7 +16,7 @@
   <br />
 </div>
 
-The `http-front-cache` utility was created to provide a simple and efficient way to cache the results of service functions in the browser's session storage. This can significantly improve the performance of applications by reducing the number of redundant network requests and computations. However, it is important to use this utility with caution and adhere to the following constraints:
+The `http-front-cache` utility was created to provide a simple and efficient way to cache the results of service functions in the browser's session storage (it is extensible to other storages, see more on [Using another Storage as Provider](#using-another-storage-as-provider)). This can significantly improve the performance of applications by reducing the number of redundant network requests and computations. However, it is important to use this utility with caution and adhere to the following constraints:
 
 1. The data to be cached is not too big.
 2. The data to be cached is not sensitive.
@@ -47,7 +47,7 @@ import { cacheOnSessionStorage } from '@juntossomosmais/http-front-cache';
 type Params = [string];
 type Result = { data: string[] };
 
-const fetchData: ServiceFunction<Params, Result> = async (param: string) => {
+const fetchData = async (param) => {
   const response = await fetch(`https://api.example.com/data?param=${param}`);
   return response.json();
 };
@@ -60,9 +60,9 @@ cachedFetchData('exampleParam').then((result) => {
 });
 ```
 
-## Another Storage
+## Using another Storage as Provider
 
-Currently, the `cacheOnSessionStorage` utility only supports [session storage as provider](https://github.com/open-ish/utility/blob/c6d98898bbc6119cd482b736f57ec897443e71de/packages/http-front-cache/src/lib/providers/session-storage.ts#L1-L8). However, it can be easily extended to support other storage mechanisms such as local storage or indexedDB by using the `cacheFactory` function.
+Currently, the `cacheOnSessionStorage` uses [session storage as provider](https://github.com/open-ish/utility/blob/c6d98898bbc6119cd482b736f57ec897443e71de/packages/http-front-cache/src/lib/providers/session-storage.ts#L1-L8). However, it can be easily extended to support other storage mechanisms such as local storage or indexedDB or even In-Memory by using the `cacheFactory` function.
 
 ```typescript
 import { cacheFactory, ServiceFunction } from '@juntossomosmais/http-front-cache';';
@@ -81,7 +81,7 @@ export const cacheOnMyCustomProvider = <TParams extends unknown[], TResult>(
     return cacheFactory<TParams, TResult>({
       params,
       expire,
-      serviceFunction: fetchData,
+      serviceFunction,
       provider: customProvider,
     });
   };
