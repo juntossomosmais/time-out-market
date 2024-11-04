@@ -70,6 +70,7 @@ jobs:
           npx nx show projects --affected
 
       - name: Build and publish affected packages
+        if: ${{ steps.release.outputs.releases_created }}
         run: |
           npm run publish-package
         continue-on-error: false
