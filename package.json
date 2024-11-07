@@ -38,6 +38,8 @@
     "@swc/helpers": "~0.5.11",
     "@types/jest": "^29.5.12",
     "@types/node": "22.8.6",
+    "@types/object-hash": "^3.0.6",
+    "@types/pako": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
     "@typescript-eslint/parser": "^8.12.2",
     "babel-loader": "^9.2.1",
@@ -59,9 +61,7 @@
     "ts-node": "10.9.1",
     "typescript": "^5.6.3",
     "vite": "^5.0.0",
-    "@types/object-hash": "^3.0.6",
-    "@types/pako": "^2.0.3",
-    "vite-plugin-dts": "~3.8.1"
+    "vite-plugin-dts": "^4.3.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -73,8 +73,8 @@
     ]
   },
   "dependencies": {
-    "tslib": "^2.3.0",
     "object-hash": "^3.0.0",
-    "pako": "^2.1.0"
+    "pako": "^2.1.0",
+    "tslib": "^2.3.0"
   }
 }
