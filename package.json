@@ -22,7 +22,7 @@
     "publish-package": "npx nx affected --target=publish-package --base=HEAD~1 --head=HEAD --parallel"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
+    "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-typescript": "^7.24.7",
     "@commitlint/cli": "^19.5.0",
