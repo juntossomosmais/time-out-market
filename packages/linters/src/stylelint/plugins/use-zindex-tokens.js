@@ -14,52 +14,65 @@ const meta = {
     category: 'Best Practices',
     recommended: true,
   },
-  fixable: null,
+  fixable: true,
   schema: [],
 }
 
-module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
-  return function (root, result) {
-    const validOptions = stylelint.utils.validateOptions(result, ruleName, {
-      actual: primaryOption,
-    })
+module.exports = stylelint.createPlugin(
+  ruleName,
+  (primaryOption, _, context) => {
+    return function (root, result) {
+      const validOptions = stylelint.utils.validateOptions(result, ruleName, {
+        actual: primaryOption,
+      })
 
-    if (!validOptions) return
+      if (!validOptions) return
 
-    root.walkDecls((decl) => {
-      if (decl.prop !== 'z-index') return
+      root.walkDecls((decl) => {
+        if (decl.prop !== 'z-index') return
 
-      const zIndexValue = parseInt(decl.value, 10)
+        const zIndexValue = parseInt(decl.value, 10)
 
-      if (!isNaN(zIndexValue)) {
-        const tokenName = Object.keys(tokens).find(
-          (key) =>
-            tokens[key] === String(zIndexValue) ||
-            tokens[key] === `var(${zIndexValue})`
-        )
+        if (!isNaN(zIndexValue)) {
+          const tokenName = Object.keys(tokens).find(
+            (key) =>
+              tokens[key] === String(zIndexValue) ||
+              tokens[key] === `var(${zIndexValue})`
+          )
 
-        if (tokenName) {
-          stylelint.utils.report({
-            message: messages.useToken({
-              tokenName,
-              tokenValue: tokens[tokenName],
-            }),
-            node: decl,
-            result,
-            ruleName,
-          })
-        } else {
-          stylelint.utils.report({
-            message: messages.noStaticValue,
-            node: decl,
-            result,
-            ruleName,
-          })
+          if (tokenName) {
+            const fix = () => {
+              decl.value = `var(--${tokenName})`
+            }
+
+            if (context.fix) {
+              fix()
+
+              return
+            }
+
+            stylelint.utils.report({
+              message: messages.useToken({
+                tokenName,
+                tokenValue: tokens[tokenName],
+              }),
+              node: decl,
+              result,
+              ruleName,
+            })
+          } else {
+            stylelint.utils.report({
+              message: messages.noStaticValue,
+              node: decl,
+              result,
+              ruleName,
+            })
+          }
         }
-      }
-    })
+      })
+    }
   }
-})
+)
 
 module.exports.ruleName = ruleName
 module.exports.messages = messages
