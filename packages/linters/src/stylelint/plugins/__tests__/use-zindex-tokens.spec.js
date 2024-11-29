@@ -4,6 +4,7 @@ const { messages } = require('../use-zindex-tokens')
 
 const validCss = '.class { z-index: var(--zindex-1); }'
 const invalidCss = '.class { z-index: 10; }'
+const invalidUnknownZIndexTokenValue = '.class { z-index: 180; }'
 
 const config = {
   plugins: ['@juntossomosmais/linters/stylelint/plugins/use-zindex-tokens.js'],
@@ -48,6 +49,30 @@ describe('use-zindex-tokens rule', () => {
     expect(result.results[0].warnings[0].text).toBe(
       messages.useToken({ tokenName: 'zindex-10', tokenValue: '10' })
     )
+  })
+
+  it('should fix invalid CSS', async () => {
+    const result = await stylelint.lint({
+      code: invalidCss,
+      config,
+      fix: true,
+    })
+
+    expect(result.results[0].warnings).toHaveLength(0)
+    expect(result.output).toBe('.class { z-index: var(--zindex-10); }')
+  })
+
+  it('should not fix invalid CSS with unknown static values', async () => {
+    const result = await stylelint.lint({
+      code: invalidUnknownZIndexTokenValue,
+      config,
+      fix: true,
+    })
+
+    expect(result.results[0].warnings).toHaveLength(1)
+    expect(result.results[0].warnings[0].rule).toBe('plugin/use-zindex-tokens')
+    expect(result.results[0].warnings[0].severity).toBe('error')
+    expect(result.results[0].warnings[0].text).toBe(messages.noStaticValue)
   })
 
   it('should rejects invalid CSS random value', async () => {
