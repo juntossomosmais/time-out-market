@@ -15,23 +15,20 @@
   "workspaceLayout": {
     "libsDir": "packages"
   },
-  "extends": "@nrwl/workspace/presets/core.json",
+  "extends": "nx/presets/core.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "@juntossomosmais",
-  "affected": {
-    "defaultBase": "main"
-  },
+  "defaultBase": "main",
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "nx"
   },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    ".eslintrc.js": "*",
-    "tsconfig.base.json": "*",
-    "nx.json": "*"
+  "namedInputs": {
+    "sharedGlobals": [
+      "{workspaceRoot}/.eslintrc.js",
+      "{workspaceRoot}/tsconfig.base.json",
+      "{workspaceRoot}/nx.json"
+    ],
+    "default": ["sharedGlobals"]
   },
   "tasksRunnerOptions": {
     "default": {
@@ -63,5 +60,6 @@
         "targetName": "jest:test"
       }
     }
-  ]
+  ],
+  "useLegacyCache": true
 }
