@@ -4,6 +4,8 @@ const { messages } = require('../use-tokens')
 
 const validCss = '.class { color: var(--color-primary); }'
 const invalidCss = '.class { color: #fff; }'
+const invalidCssTwoProps =
+  '.class { color: #fff; }; .class-border { border-radius: 4px }'
 
 const config = {
   plugins: ['@juntossomosmais/linters/stylelint/plugins/use-tokens.js'],
@@ -50,6 +52,30 @@ describe('use-tokens rule', () => {
         tokenName: 'color-neutral-white',
         tokenValue: '#fff',
       })
+    )
+  })
+
+  it('should fix invalid CSS', async () => {
+    const result = await stylelint.lint({
+      code: invalidCss,
+      config,
+      fix: true,
+    })
+
+    expect(result.results[0].warnings).toHaveLength(0)
+    expect(result.output).toBe('.class { color: var(--color-neutral-white); }')
+  })
+
+  it('should fix invalid CSS when have two props', async () => {
+    const result = await stylelint.lint({
+      code: invalidCssTwoProps,
+      config,
+      fix: true,
+    })
+
+    expect(result.results[0].warnings).toHaveLength(0)
+    expect(result.output).toBe(
+      '.class { color: var(--color-neutral-white); }; .class-border { border-radius: var(--spacing-xxsmall) }'
     )
   })
 
