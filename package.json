@@ -29,7 +29,7 @@
     "@commitlint/config-conventional": "^19.5.0",
     "@juntossomosmais/atomium-tokens": "^1.2.0",
     "@nx/jest": "19.6.4",
-    "@nx/js": "19.6.4",
+    "@nx/js": "20.1.4",
     "@nx/vite": "19.6.4",
     "@nx/web": "19.6.4",
     "@nx/workspace": "19.6.4",
