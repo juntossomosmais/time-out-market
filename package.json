@@ -54,7 +54,7 @@
     "lint-staged": "^15.2.10",
     "nx": "19.6.4",
     "prettier": "3.3.3",
-    "stylelint": "^15.11.0",
+    "stylelint": "^16.11.0",
     "stylelint-config-recommended": "^14.0.1",
     "stylelint-order": "^6.0.4",
     "ts-jest": "^29.1.0",
