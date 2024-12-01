@@ -26,7 +26,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-typescript": "^7.26.0",
     "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@juntossomosmais/atomium-tokens": "^1.2.0",
     "@nx/jest": "19.6.4",
     "@nx/js": "19.6.4",
