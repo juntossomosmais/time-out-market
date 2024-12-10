@@ -33,7 +33,7 @@
     "@nx/vite": "20.1.4",
     "@nx/web": "20.1.4",
     "@nx/workspace": "20.1.4",
-    "@swc-node/register": "~1.9.1",
+    "@swc-node/register": "~1.10.9",
     "@swc/core": "~1.9.3",
     "@swc/helpers": "~0.5.15",
     "@types/jest": "^29.5.12",
