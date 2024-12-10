@@ -41,7 +41,7 @@
     "@types/object-hash": "^3.0.6",
     "@types/pako": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^8.16.0",
-    "@typescript-eslint/parser": "^8.12.2",
+    "@typescript-eslint/parser": "^8.16.0",
     "babel-loader": "^9.2.1",
     "eslint": "^8.57.0",
     "eslint-import-resolver-node": "^0.3.9",
