@@ -53,7 +53,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.10",
     "nx": "20.1.4",
-    "prettier": "3.3.3",
+    "prettier": "3.4.1",
     "stylelint": "^15.11.0",
     "stylelint-config-recommended": "^14.0.1",
     "stylelint-order": "^6.0.4",
