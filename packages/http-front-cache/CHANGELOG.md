@@ -1,7 +1,6 @@
 # Changelog
 
-## 1.0.0 (2024-11-04)
-
+## [1.0.0](https://github.com/juntossomosmais/time-out-market/compare/http-front-cache-v0.0.1...http-front-cache-v0.1.0) (2024-12-10)
 
 ### Features
 
