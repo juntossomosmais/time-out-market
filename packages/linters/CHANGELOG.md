@@ -1,5 +1,47 @@
 # Changelog
 
+## [0.24.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.23.0...linters-v0.24.0) (2024-12-10)
+
+
+### Features
+
+* create http front cache package ([#267](https://github.com/juntossomosmais/time-out-market/issues/267)) ([0e835e3](https://github.com/juntossomosmais/time-out-market/commit/0e835e3b2c2cc25418abc4fb91530ded5a605e67))
+* **deps:** bump dependencies and add the correct version for each dependency  ([#196](https://github.com/juntossomosmais/time-out-market/issues/196)) ([48cc569](https://github.com/juntossomosmais/time-out-market/commit/48cc569b5c989712cfb2b1b7dafba139895f724f))
+* **linter:** add jsx configs to prettier ([e23a7d1](https://github.com/juntossomosmais/time-out-market/commit/e23a7d1b95045eda04746d2db30839ff99205937))
+* **linters:** add `jsx-boolean-value` in `eslint.config.react` ([#76](https://github.com/juntossomosmais/time-out-market/issues/76)) ([6a1a745](https://github.com/juntossomosmais/time-out-market/commit/6a1a745aee3e9d994d7577d37e8d85ebe06baf8e))
+* **linters:** add basic config to stylelint ([#15](https://github.com/juntossomosmais/time-out-market/issues/15)) ([3bbc323](https://github.com/juntossomosmais/time-out-market/commit/3bbc323cceb3a4006a61926dadcc8b1935dc0549))
+* **linters:** add commitlint ([f061f2d](https://github.com/juntossomosmais/time-out-market/commit/f061f2d07dadab68e563b53975b91d2b99f2e8d6))
+* **linters:** add configs to eslint ([#51](https://github.com/juntossomosmais/time-out-market/issues/51)) ([0fc72f9](https://github.com/juntossomosmais/time-out-market/commit/0fc72f97344fc0cf72b7c051261d29952c7b86a7))
+* **linters:** add no undef rule to break ([#223](https://github.com/juntossomosmais/time-out-market/issues/223)) ([3b926af](https://github.com/juntossomosmais/time-out-market/commit/3b926afa201305b99be219fdbf8f4a45306ee36c))
+* **linters:** add padding-line-between-statements ([#68](https://github.com/juntossomosmais/time-out-market/issues/68)) ([cbb218e](https://github.com/juntossomosmais/time-out-market/commit/cbb218e7ca03c5e8d79a0845d1df2deac1ba2cdb))
+* **linters:** add peerDependencies ([fa0f991](https://github.com/juntossomosmais/time-out-market/commit/fa0f99158623d2e864fd5260bcbfa8e29eb8ed39))
+* **linters:** add plugin to use letter-spacing with font ([#12](https://github.com/juntossomosmais/time-out-market/issues/12)) ([9b0c287](https://github.com/juntossomosmais/time-out-market/commit/9b0c28782e052ac61fa875b67452dcc43792e974))
+* **linters:** add plugin to use tokens  ([#11](https://github.com/juntossomosmais/time-out-market/issues/11)) ([eb2ccec](https://github.com/juntossomosmais/time-out-market/commit/eb2ccec8a8697d55a4efe19b62383cccfcc002ac))
+* **linters:** add plugin to use tokens to zindex ([#13](https://github.com/juntossomosmais/time-out-market/issues/13)) ([360f035](https://github.com/juntossomosmais/time-out-market/commit/360f035831fcf6353a9a1d17bc7aab2afcd3169e))
+* **linters:** add rule to ensure commit messages are always lower-case ([#50](https://github.com/juntossomosmais/time-out-market/issues/50)) ([0a2ce75](https://github.com/juntossomosmais/time-out-market/commit/0a2ce75bd1300b2217c25e32ca78ec9196c414c6))
+* **linters:** add rule to object-curly-spacing ([#208](https://github.com/juntossomosmais/time-out-market/issues/208)) ([dd24db5](https://github.com/juntossomosmais/time-out-market/commit/dd24db5c8056b1f9bf63208f730061d927a98c8a))
+* **linters:** add rules to jsx to react lint ([#74](https://github.com/juntossomosmais/time-out-market/issues/74)) ([1706cfc](https://github.com/juntossomosmais/time-out-market/commit/1706cfc5b4c63f49ff49b7b7395209a3344d0a7c))
+* **linters:** add stylelint new rules from frontend-guideline ([#48](https://github.com/juntossomosmais/time-out-market/issues/48)) ([6c81be0](https://github.com/juntossomosmais/time-out-market/commit/6c81be0b7b048edce89c261ab775066d5eb13010))
+* **linters:** add stylelint to scss and styled-components ([#41](https://github.com/juntossomosmais/time-out-market/issues/41)) ([b928012](https://github.com/juntossomosmais/time-out-market/commit/b9280122551733a23229cb6536dbf16694ce49e6))
+* **linters:** disable media-query-no-invalid ([#71](https://github.com/juntossomosmais/time-out-market/issues/71)) ([2aa8d76](https://github.com/juntossomosmais/time-out-market/commit/2aa8d762ab977001a78d7c03cdd3beb1d50a020e))
+* **linters:** disable react/no-unescaped-entities ([2525214](https://github.com/juntossomosmais/time-out-market/commit/252521475ecc6bc960447ccdcdfd99b689cb7f4c))
+* **linters:** enable es2021 to lint ([#104](https://github.com/juntossomosmais/time-out-market/issues/104)) ([3b2721d](https://github.com/juntossomosmais/time-out-market/commit/3b2721da34fc7518061b0b79e855a8107ecd47dc))
+* **linters:** improve configs from import/order ([e72ecd3](https://github.com/juntossomosmais/time-out-market/commit/e72ecd3f7c784fe5e32be2733f8da2bf5566ef62))
+* **linters:** remove no-descending-specificity ([352bf62](https://github.com/juntossomosmais/time-out-market/commit/352bf628b8cef7a8b2d80575fea659c72a3fd6a0))
+* **linters:** remove revert option from commit list ([#55](https://github.com/juntossomosmais/time-out-market/issues/55)) ([c4cd1fe](https://github.com/juntossomosmais/time-out-market/commit/c4cd1fe415b72813136a113bda0e23894aa69d78))
+* **linters:** replace jsxBracketSameLine option with bracketSameLine option ([9b3d088](https://github.com/juntossomosmais/time-out-market/commit/9b3d08810b320b5b6b382b046bf34cb13f599801))
+* **linters:** use null for at rule no unknown in scss ([#240](https://github.com/juntossomosmais/time-out-market/issues/240)) ([b723dce](https://github.com/juntossomosmais/time-out-market/commit/b723dced511f99543e2cb859f63dd0e60c0e3f00))
+* **linters:** use postcss-styled-syntax as customSyntax of stylelint ([15cf13f](https://github.com/juntossomosmais/time-out-market/commit/15cf13ffaa3f6876064ece71e7d2b8fad666c798))
+* **prettier:** add shared configs ([#9](https://github.com/juntossomosmais/time-out-market/issues/9)) ([d71f7fd](https://github.com/juntossomosmais/time-out-market/commit/d71f7fd42ed65c9ebd9676923fece57a5b4fee17))
+
+
+### Bug Fixes
+
+* **linters:** remove deprecated rule ([1cd9e5b](https://github.com/juntossomosmais/time-out-market/commit/1cd9e5bf0c4d95d06491be52d8187ea5f07e29cc))
+* **linters:** remove duplicated rule ([dbe5519](https://github.com/juntossomosmais/time-out-market/commit/dbe55191a2617dcb541a05d3828ae5ff7a2066cd))
+* **sonar:** change projectKey ([e041db5](https://github.com/juntossomosmais/time-out-market/commit/e041db5de1088717bed94c5d9706e6c4810f32e9))
+* update linters config ([#88](https://github.com/juntossomosmais/time-out-market/issues/88)) ([160cfaf](https://github.com/juntossomosmais/time-out-market/commit/160cfaf87baf262b79fca4be0f26ef209522a360))
+
 ## [0.23.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.22.0...linters-v0.23.0) (2024-11-04)
 
 
