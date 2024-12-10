@@ -64,11 +64,6 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         run: npm ci --legacy-peer-deps --include=optional
 
-      - name: show affected packages
-        if: ${{ steps.release.outputs.releases_created }}
-        run: |
-          npx nx show projects --affected
-
       - name: Build and publish @juntossomosmais/linters
         if: ${{ steps.release.outputs['packages/linters--release_created'] }}
         run: npx nx run @juntossomosmais/linters:publish-library
