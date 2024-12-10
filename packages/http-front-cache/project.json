@@ -1,5 +1,5 @@
 {
-  "name": "http-front-cache",
+  "name": "@juntossomosmais/http-front-cache",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/http-front-cache/src",
   "projectType": "library",
