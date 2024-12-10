@@ -1,6 +1,6 @@
 {
   "name": "@juntossomosmais/http-front-cache",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dependencies": {
     "object-hash": "^3.0.0",
     "pako": "^2.1.0"
