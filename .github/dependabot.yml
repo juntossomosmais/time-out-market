@@ -7,4 +7,35 @@ updates:
       time: '06:00'
     rebase-strategy: 'disabled'
     target-branch: main
-    open-pull-requests-limit: 20
+    open-pull-requests-limit: 10
+    groups:
+      production-dependencies:
+        dependency-type: 'production'
+      development-dependencies:
+        dependency-type: 'development'
+      nx:
+        patterns:
+          - '@nx*'
+          - '@nrwl*'
+          - 'nx*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      babel:
+        patterns:
+          - '@babel*'
+      commitlint:
+        patterns:
+          - '@commitlint*'
+      eslint:
+        patterns:
+          - 'eslint'
+        update-types:
+          - 'minor'
+          - 'patch'
+      stylelint:
+        patterns:
+          - 'stylelint'
+        update-types:
+          - 'minor'
+          - 'patch'
