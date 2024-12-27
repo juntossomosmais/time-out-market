@@ -43,3 +43,8 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+    ignore:
+      - dependency-name: 'eslint'
+        versions: ['9.x']
+      - dependency-name: 'stylelint'
+        versions: ['16.x']
