@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import pluginImport from 'eslint-plugin-import-x';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -96,4 +97,7 @@ export default [
       "@typescript-eslint/no-explicit-any": 2,
     }
   }),
+
+  // Prettier config
+  eslintConfigPrettier,
 ]
