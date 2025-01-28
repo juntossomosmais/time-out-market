@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import pluginImport from 'eslint-plugin-import-x';
 import globals from 'globals';
 
 export default [
@@ -48,6 +49,28 @@ export default [
         { blankLine: 'always', prev: 'directive', next: '*' },
         { blankLine: 'any', prev: 'directive', next: 'directive' },
       ],
+    }
+  },
+
+   // Imports config
+   {
+    name: '@jsm/eslint-config/imports',
+    plugins: {
+      'import-x': pluginImport,
+    },
+    rules: {
+      "import-x/order": [
+        2,
+        {
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
+          "newlines-between": "always",
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+          pathGroupsExcludedImportTypes: ["react", "vue"],
+        }
+      ]
     }
   },
 ]
