@@ -1,6 +1,7 @@
 import js from '@eslint/js';
 import pluginImport from 'eslint-plugin-import-x';
 import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 export default [
   { ignores: ["**/node_modules/**", "dist/"] },
@@ -73,4 +74,26 @@ export default [
       ]
     }
   },
+
+  // TypeScript config
+  ...tseslint.config({
+    name: "@jsm/eslint-config/typescript",
+    files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts', '**/*.vue'],
+    plugins: {
+      '@typescript-eslint': tseslint.plugin,
+    },
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: true,
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        2,
+        { varsIgnorePattern: "^h$", }
+      ],
+      "@typescript-eslint/no-explicit-any": 2,
+    }
+  }),
 ]
