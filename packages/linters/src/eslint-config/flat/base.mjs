@@ -2,6 +2,7 @@ import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import pluginImport from 'eslint-plugin-import-x';
 import globals from 'globals';
+import sonarjs from 'eslint-plugin-sonarjs';
 import tseslint from 'typescript-eslint';
 
 export default [
@@ -100,4 +101,7 @@ export default [
 
   // Prettier config
   eslintConfigPrettier,
+
+  // SonarJS config
+  sonarjs.configs.recommended,
 ]
