@@ -5,7 +5,6 @@
 
 ### Features
 
-* create http front cache package ([#267](https://github.com/juntossomosmais/time-out-market/issues/267)) ([0e835e3](https://github.com/juntossomosmais/time-out-market/commit/0e835e3b2c2cc25418abc4fb91530ded5a605e67))
 * **linters:** enabling scss-specific at-rule validation ([#316](https://github.com/juntossomosmais/time-out-market/issues/316)) ([3b6e6a9](https://github.com/juntossomosmais/time-out-market/commit/3b6e6a95f7949f280c05a79fa3b092445cbce95d))
 
 ## [0.22.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.21.0...linters-v0.22.0) (2024-09-16)
