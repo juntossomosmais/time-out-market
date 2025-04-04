@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.23.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.22.0...linters-v0.23.0) (2025-04-04)
+
+
+### Features
+
+* **linters:** enabling scss-specific at-rule validation ([9d0e8a4](https://github.com/juntossomosmais/time-out-market/commit/9d0e8a4ed1a86fae0b867d7883cbbb6639b09d16))
+
 ## [0.22.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.21.0...linters-v0.22.0) (2024-09-16)
 
 
