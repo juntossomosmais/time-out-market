@@ -7,6 +7,8 @@ module.exports = {
     '@juntossomosmais/linters/stylelint/plugins/use-zindex-tokens.js',
   ],
   rules: {
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': true,
     'order/order': ['custom-properties', 'declarations'],
     'no-descending-specificity': null,
     'order/properties-alphabetical-order': true,
