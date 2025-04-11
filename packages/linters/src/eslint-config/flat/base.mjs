@@ -1,12 +1,15 @@
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import pluginImport from 'eslint-plugin-import-x';
-import globals from 'globals';
 import sonarjs from 'eslint-plugin-sonarjs';
+import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
+/**
+ * @type {Array<import('eslint').Linter.Config>}
+ */
 export default [
-  { ignores: ["**/node_modules/**", "dist/"] },
+  { ignores: ["**/node_modules/**", "**/dist/**", "**/.next/**"] },
 
   // JavaScript config
   {
@@ -55,8 +58,8 @@ export default [
     }
   },
 
-   // Imports config
-   {
+  // Imports config
+  {
     name: '@jsm/eslint-config/imports',
     plugins: {
       'import-x': pluginImport,
@@ -103,5 +106,9 @@ export default [
   eslintConfigPrettier,
 
   // SonarJS config
-  sonarjs.configs.recommended,
+  {
+    name: '@jsm/eslint-config/sonarjs',
+    ignores: ['**/*.spec.*', '**/*.test.*'],
+    ...sonarjs.configs.recommended,
+  }
 ]
