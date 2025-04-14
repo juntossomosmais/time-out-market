@@ -1,6 +1,6 @@
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import pluginImport from 'eslint-plugin-import-x';
+import importPlugin from 'eslint-plugin-import';
 import sonarjs from 'eslint-plugin-sonarjs';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -61,11 +61,9 @@ export default [
   // Imports config
   {
     name: '@jsm/eslint-config/imports',
-    plugins: {
-      'import-x': pluginImport,
-    },
+    plugins: { import: importPlugin },
     rules: {
-      "import-x/order": [
+      "import/order": [
         2,
         {
           groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
@@ -87,6 +85,7 @@ export default [
     plugins: {
       '@typescript-eslint': tseslint.plugin,
     },
+    extends: [importPlugin.configs.typescript],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {

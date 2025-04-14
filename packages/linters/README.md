@@ -43,7 +43,7 @@ npm i -D @commitlint/cli @commitlint/config-conventional prettier postcss stylel
 npm i @juntossomosmais/atomium-tokens
 
 # If you are using ESLint Flat config:
-npm i -D @eslint/js globals eslint-plugin-import-x eslint-plugin-react eslint-plugin-react-hooks eslint-config-prettier typescript-eslint
+npm i -D @eslint/js globals eslint-plugin-react eslint-plugin-react-hooks eslint-config-prettier typescript-eslint
 ```
 
 Then install the linters package:
