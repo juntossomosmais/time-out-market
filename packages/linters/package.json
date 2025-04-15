@@ -20,7 +20,7 @@
     "@juntossomosmais/atomium-tokens": ">= 1",
     "@typescript-eslint/eslint-plugin": ">= 6",
     "@typescript-eslint/parser": ">= 6",
-    "eslint": ">= 8 && < 9",
+    "eslint": ">= 8",
     "eslint-import-resolver-babel-plugin-root-import": ">= 1",
     "eslint-import-resolver-typescript": ">= 3",
     "eslint-plugin-import": ">= 2",

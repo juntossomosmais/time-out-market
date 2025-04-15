@@ -16,8 +16,8 @@
     "pre-commit": "lint-staged",
     "start": "npx nx run-many --target=start --maxParallel=10",
     "test": "npx nx run-many --target=test --parallel",
-    "test:ci": "npx nx affected --target=test:ci --base=origin/main --parallel",
-    "test:ci-merge": "npx nx affected --target=test:ci --base=origin/main~1 --head=origin/main --parallel"
+    "test:ci": "npx nx affected --target=test:ci --base=origin/main --parallel --verbose",
+    "test:ci-merge": "npx nx affected --target=test:ci --base=origin/main~1 --head=origin/main --parallel --verbose"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
@@ -25,6 +25,7 @@
     "@babel/preset-typescript": "^7.27.0",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
+    "@eslint/js": "^9.24.0",
     "@juntossomosmais/atomium-tokens": "^2.0.0",
     "@nx/jest": "20.7.0",
     "@nx/js": "20.7.0",
@@ -42,10 +43,14 @@
     "@typescript-eslint/parser": "^8.29.0",
     "babel-loader": "^10.0.0",
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^10.1.2",
     "eslint-import-resolver-node": "^0.3.9",
     "eslint-import-resolver-typescript": "^4.3.1",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-sonarjs": "^3.0.2",
+    "globals": "^15.15.0",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
@@ -58,6 +63,7 @@
     "ts-jest": "^29.3.1",
     "ts-node": "10.9.2",
     "typescript": "^5.8.2",
+    "typescript-eslint": "^8.29.1",
     "vite": "^6.2.4",
     "vite-plugin-dts": "^4.5.3"
   },
@@ -74,5 +80,8 @@
     "object-hash": "^3.0.0",
     "pako": "^2.1.0",
     "tslib": "^2.8.1"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.40.0"
   }
 }
