@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.24.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.23.0...linters-v0.24.0) (2025-04-15)
+
+
+### Features
+
+* **eslint:** adopt eslint v9 flat config ([#309](https://github.com/juntossomosmais/time-out-market/issues/309)) ([2232be3](https://github.com/juntossomosmais/time-out-market/commit/2232be31998c5c9cb9b67cb00f0d6c8feb56bbfc))
+
 ## [0.23.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.22.0...linters-v0.23.0) (2025-04-04)
 
 
