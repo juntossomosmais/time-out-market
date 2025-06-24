@@ -1,6 +1,6 @@
 {
   "name": "@juntossomosmais/rupture-scss",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "SCSS Media Queries library for responsive design",
   "main": "rupture.scss",
   "files": [
