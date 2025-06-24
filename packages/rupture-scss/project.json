@@ -9,6 +9,13 @@
       "options": {
         "command": "echo 'Rupture is a pure SCSS library - no build step required'"
       }
+    },
+    "publish-package": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish",
+        "cwd": "packages/rupture-scss"
+      }
     }
   },
   "tags": ["type:library", "scope:shared"]

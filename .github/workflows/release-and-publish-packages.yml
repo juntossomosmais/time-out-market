@@ -77,3 +77,10 @@ jobs:
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and publish @juntossomosmais/rupture-scss
+        if: ${{ steps.release.outputs['packages/rupture-scss--release_created'] }}
+        run: npx nx run rupture-scss:publish-package
+        continue-on-error: false
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
