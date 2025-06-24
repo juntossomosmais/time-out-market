@@ -1,0 +1,40 @@
+{
+  "name": "@juntossomosmais/rupture-scss",
+  "version": "1.0.0",
+  "description": "SCSS Media Queries library for responsive design",
+  "main": "rupture.scss",
+  "files": [
+    "rupture.scss",
+    "README.md"
+  ],
+  "keywords": [
+    "scss",
+    "sass",
+    "media-queries",
+    "responsive",
+    "breakpoints",
+    "mixins",
+    "css",
+    "frontend"
+  ],
+  "author": "Juntos Somos Mais",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juntossomosmais/time-out-market.git",
+    "directory": "packages/rupture-scss"
+  },
+  "bugs": {
+    "url": "https://github.com/juntossomosmais/time-out-market/issues"
+  },
+  "homepage": "https://github.com/juntossomosmais/time-out-market/tree/main/packages/rupture-scss#readme",
+  "peerDependencies": {
+    "sass": "^1.32.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
