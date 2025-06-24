@@ -1,3 +1,4 @@
 {
-  "extends": ["@juntossomosmais/linters/stylelint.config.js"]
+  "extends": ["@juntossomosmais/linters/stylelint.config.js"],
+  "ignoreFiles": ["**/rupture.scss"]
 }
