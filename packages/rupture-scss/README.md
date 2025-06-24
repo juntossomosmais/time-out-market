@@ -1,4 +1,4 @@
-# @juntossomosmais/rupture
+# @juntossomosmais/rupture-scss
 
 A powerful SCSS Media Queries library for creating clean, maintainable responsive designs. Based on the [rupture-sass](https://github.com/senvolodymyr/rupture-sass) library with custom modifications for modern responsive design needs.
 
@@ -13,13 +13,13 @@ A powerful SCSS Media Queries library for creating clean, maintainable responsiv
 ## Installation
 
 ```bash
-npm install @juntossomosmais/rupture
+npm install @juntossomosmais/rupture-scss
 ```
 
 ## Quick Start
 
 ```scss
-@use '@juntossomosmais/rupture' as rupture;
+@use '@juntossomosmais/rupture-scss' as rupture;
 
 .my-component {
   padding: 16px;
@@ -54,7 +54,7 @@ $rupture: (
   base-font-size: 16px
 );
 
-@use '@juntossomosmais/rupture' as rupture;
+@use '@juntossomosmais/rupture-scss' as rupture;
 ```
 
 ## Default Configuration
