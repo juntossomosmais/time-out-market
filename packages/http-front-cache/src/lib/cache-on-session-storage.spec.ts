@@ -1,6 +1,8 @@
 import * as cacheFactory from './cache-factory'
 import { cacheOnSessionStorage } from './cache-on-session-storage'
 import { sessionStorageProvider } from './providers/session-storage'
+import { removeCacheByParam } from './remove-cache-by-param'
+import { removeCacheByParamOnSessionStorage } from './remove-cache-by-param-session-storage'
 
 jest.mock('./providers/session-storage.ts', () => ({
   sessionStorageProvider: {
@@ -9,6 +11,10 @@ jest.mock('./providers/session-storage.ts', () => ({
     removeItem: jest.fn(),
     clear: jest.fn(),
   },
+}))
+
+jest.mock('./remove-cache-by-param', () => ({
+  removeCacheByParam: jest.fn(),
 }))
 
 const cacheFactoryMock = jest.spyOn(cacheFactory, 'cacheFactory')
@@ -26,6 +32,19 @@ describe('cacheOnSessionStorage', () => {
       expire,
       serviceFunction,
       provider: sessionStorageProvider,
+    })
+  })
+
+  describe('removeCacheByParamOnSessionStorage', () => {
+    it('should call removeCacheByParam with sessionStorageProvider', () => {
+      const params = ['test']
+
+      removeCacheByParamOnSessionStorage(...params)
+
+      expect(removeCacheByParam).toHaveBeenCalledWith(
+        sessionStorageProvider,
+        ...params
+      )
     })
   })
 })
