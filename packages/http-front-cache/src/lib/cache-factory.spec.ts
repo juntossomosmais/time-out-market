@@ -138,14 +138,17 @@ describe('cacheFactory', () => {
 
   it('Should remove the cache when removeCacheByParam is called and call the service function again', async () => {
     await cachedServiceFunction(defaultParams)
-    const cachedEntry = mockProvider.getItem(defaultHashedParams)
+    let cachedEntry = mockProvider.getItem(defaultHashedParams)
 
     expect(mockServiceFunction).toHaveBeenCalledTimes(1)
     expect(cachedEntry).not.toBeNull()
+    expect(cachedEntry).not.toBeUndefined()
+
     removeCacheByParam(mockProvider, defaultParams)
+    cachedEntry = mockProvider.getItem(defaultHashedParams)
     await cachedServiceFunction(defaultParams)
     expect(mockServiceFunction).toHaveBeenCalledTimes(2)
-    expect(cachedEntry).toBeNull()
+    expect(cachedEntry).toBeUndefined()
   })
 
   it('should not set data in the cache if the service function throws an error', async () => {
