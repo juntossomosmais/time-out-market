@@ -1,6 +1,8 @@
 import hash from 'object-hash'
 import pako from 'pako'
+
 import { cacheFactory } from './cache-factory'
+import { removeCacheByParam } from './remove-cache-by-param'
 import { Provider } from './types'
 
 const defaultParams = { param: 'test' }
@@ -88,12 +90,14 @@ describe('cacheFactory', () => {
     expect(mockServiceFunction).toHaveBeenCalledTimes(1)
 
     const cachedEntry = mockProvider.getItem(defaultHashedParams)
+
     expect(cachedEntry).not.toBeNull()
 
     const decompressedEntry = pako.inflate(cachedEntry, {
       to: 'string',
     })
     const entry = JSON.parse(decompressedEntry)
+
     expect(entry.data).toEqual(defaultResponse)
   })
 
@@ -114,9 +118,11 @@ describe('cacheFactory', () => {
       // forcing the cache to expire
       entry.timestamp -= expireTime + 1
       const expiredCompressedEntry = pako.deflate(JSON.stringify(entry))
+
       mockProvider.setItem(hashedParams, expiredCompressedEntry)
 
       const result = await cachedServiceFunction(params)
+
       expect(result).toEqual(defaultResponse)
       expect(mockServiceFunction).toHaveBeenCalledTimes(2)
       expect(mockProvider.getItem(hashedParams)).not.toBeNull()
@@ -128,6 +134,18 @@ describe('cacheFactory', () => {
     expect(mockServiceFunction).toHaveBeenCalledTimes(1)
     await cachedServiceFunction(defaultParams)
     expect(mockServiceFunction).toHaveBeenCalledTimes(1)
+  })
+
+  it('Should remove the cache when removeCacheByParam is called and call the service function again', async () => {
+    await cachedServiceFunction(defaultParams)
+    const cachedEntry = mockProvider.getItem(defaultHashedParams)
+
+    expect(mockServiceFunction).toHaveBeenCalledTimes(1)
+    expect(cachedEntry).not.toBeNull()
+    removeCacheByParam(mockProvider, defaultParams)
+    await cachedServiceFunction(defaultParams)
+    expect(mockServiceFunction).toHaveBeenCalledTimes(2)
+    expect(cachedEntry).toBeNull()
   })
 
   it('should not set data in the cache if the service function throws an error', async () => {
