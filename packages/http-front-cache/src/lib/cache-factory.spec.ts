@@ -159,7 +159,7 @@ describe('cacheFactory', () => {
   it('Should remove the cache when removeCacheByParam is called and call the service function again', async () => {
     const { removeCacheByParam, cachedFunction } = cachedServiceFunction()
 
-    expect(removeCacheByParam(defaultParams)).toBeNull()
+    expect(removeCacheByParam(defaultParams)).toBeUndefined()
 
     await cachedFunction(defaultParams)
     let cachedEntry = mockProvider.getItem(defaultHashedParams)

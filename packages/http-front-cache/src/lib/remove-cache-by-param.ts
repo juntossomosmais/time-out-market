@@ -12,17 +12,15 @@ export function removeCacheByParam(
   provider: Provider,
   serviceFunctionName: string,
   ...params: unknown[]
-): void | null {
+): void {
   const key = hash([serviceFunctionName, params])
   const cachedEntry = provider.getItem(key)
 
   if (!cachedEntry) {
-    return null
+    return
   }
 
   provider.removeItem(key)
-
-  return undefined
 }
 
 /**
