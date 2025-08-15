@@ -1,5 +1,6 @@
 import hash from 'object-hash'
-import pako from 'pako'
+import { deflate, inflate } from 'pako'
+
 import { CacheEntry, CacheFactory } from './types'
 
 /**
@@ -12,22 +13,36 @@ import { CacheEntry, CacheFactory } from './types'
  *
  * @param params: the parameters that will be used to generate the cache key
  * @param expire: the time in milliseconds that the cache will be valid
- * @param serviceFunction: the service function that will be cached
+ * @param serviceFunction: the service function that will be cached (it can't be anonymous)
  * @param provider: the provider that will store the cache (such as in-memory, session storage, etc)
  */
-export const cacheFactory = async <TParams extends unknown[], TResult>({
-  params,
-  expire,
-  serviceFunction,
-  provider,
-}: CacheFactory<TParams, TResult>) => {
-  const key = hash(params)
+export const cacheFactory = async <TParams extends unknown[], TResult>(
+  args: CacheFactory<TParams, TResult>
+) => {
+  const { params, expire, serviceFunction, provider } = args
+  const assignment = serviceFunction.name
+
+  if (!assignment) {
+    /*
+     * the service function name is required to generate the cache key and avoid caching conflicts.
+     * if you have two service functions with the same parameters, they will conflict and the cache will not work as expected.
+     * params = 'nice-param'
+     * serviceFunction(params)
+     * serviceFunction2(params) // same params
+     *
+     * They will generate different cache keys (once the service functions name are different) and the cache will work as expected.
+     */
+    throw new Error('Anonymous service functions are disallowed')
+  }
+
+  const key = hash([assignment, params])
+
   const now = Date.now()
 
   const cachedEntry = provider.getItem(key)
 
   if (cachedEntry) {
-    const decompressedEntry = pako.inflate(cachedEntry, {
+    const decompressedEntry = inflate(cachedEntry, {
       to: 'string',
     })
     const entry = JSON.parse(decompressedEntry) as CacheEntry<TResult>
@@ -41,7 +56,7 @@ export const cacheFactory = async <TParams extends unknown[], TResult>({
 
   const result = await serviceFunction(...params)
   const cacheEntry: CacheEntry<TResult> = { timestamp: now, data: result }
-  const compressedEntry = pako.deflate(JSON.stringify(cacheEntry))
+  const compressedEntry = deflate(JSON.stringify(cacheEntry))
 
   provider.setItem(key, compressedEntry)
 
