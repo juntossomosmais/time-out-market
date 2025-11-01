@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "@types/object-hash": "^3.0.6",
-    "@types/pako": "^2.0.3"
+    "@types/pako": "^2.0.4"
   },
   "type": "commonjs",
   "main": "./index.js",
