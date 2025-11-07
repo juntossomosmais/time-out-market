@@ -1,15 +1,15 @@
-import js from '@eslint/js';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import importPlugin from 'eslint-plugin-import';
-import sonarjs from 'eslint-plugin-sonarjs';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import js from '@eslint/js'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import importPlugin from 'eslint-plugin-import'
+import sonarjs from 'eslint-plugin-sonarjs'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
  */
 export default [
-  { ignores: ["**/node_modules/**", "**/dist/**", "**/.next/**"] },
+  { ignores: ['**/node_modules/**', '**/dist/**', '**/.next/**'] },
 
   // JavaScript config
   {
@@ -21,8 +21,8 @@ export default [
         ...globals.browser,
         ...globals.jest,
       },
-      ecmaVersion: "latest",
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -55,7 +55,7 @@ export default [
         { blankLine: 'always', prev: 'directive', next: '*' },
         { blankLine: 'any', prev: 'directive', next: 'directive' },
       ],
-    }
+    },
   },
 
   // Imports config
@@ -63,24 +63,31 @@ export default [
     name: '@jsm/eslint-config/imports',
     plugins: { import: importPlugin },
     rules: {
-      "import/order": [
+      'import/order': [
         2,
         {
-          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
-          "newlines-between": "always",
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+          ],
+          'newlines-between': 'always',
           alphabetize: {
-            order: "asc",
+            order: 'asc',
             caseInsensitive: true,
           },
-          pathGroupsExcludedImportTypes: ["react", "vue"],
-        }
-      ]
-    }
+          pathGroupsExcludedImportTypes: ['react', 'vue'],
+        },
+      ],
+    },
   },
 
   // TypeScript config
   ...tseslint.config({
-    name: "@jsm/eslint-config/typescript",
+    name: '@jsm/eslint-config/typescript',
     files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts', '**/*.vue'],
     plugins: {
       '@typescript-eslint': tseslint.plugin,
@@ -93,12 +100,9 @@ export default [
       },
     },
     rules: {
-      "@typescript-eslint/no-unused-vars": [
-        2,
-        { varsIgnorePattern: "^h$", }
-      ],
-      "@typescript-eslint/no-explicit-any": 2,
-    }
+      '@typescript-eslint/no-unused-vars': [2, { varsIgnorePattern: '^h$' }],
+      '@typescript-eslint/no-explicit-any': 2,
+    },
   }),
 
   // Prettier config
@@ -109,5 +113,5 @@ export default [
     name: '@jsm/eslint-config/sonarjs',
     ignores: ['**/*.spec.*', '**/*.test.*'],
     ...sonarjs.configs.recommended,
-  }
+  },
 ]
