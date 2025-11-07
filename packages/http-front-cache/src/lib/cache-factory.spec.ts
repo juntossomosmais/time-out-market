@@ -1,5 +1,5 @@
 import hash from 'object-hash'
-import pako from 'pako'
+import { deflate, inflate } from 'pako'
 
 import { cacheFactory } from './cache-factory'
 import { removeCacheByParamFactory } from './remove-cache-by-param'
@@ -49,7 +49,8 @@ const defaultResponse2 = {
   login: 'anotherOne',
 }
 
-async function mockServiceFunction(...params) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+async function mockServiceFunction(..._args: unknown[]) {
   return defaultResponse
 }
 
@@ -62,13 +63,13 @@ const provider: Record<string, string> = {}
 const mockProvider: Provider = {
   getItem: (key) => provider[key] as unknown as Uint8Array,
   setItem: (key, value) => {
-    // @ts-ignore
+    // @ts-expect-error - Testing with mock provider type
     provider[key] = value
   },
   removeItem: (key) => {
     delete provider[key]
   },
-  //@ts-ignore
+  // @ts-expect-error - Testing with mock provider type
   clear: () => {
     Object.keys(provider).forEach((key) => {
       delete provider[key]
@@ -81,7 +82,7 @@ function cachedServiceFunction<TParams extends unknown[], TResult>() {
     return cacheFactory<TParams, TResult>({
       params,
       expire: expireTime,
-      //@ts-ignore
+      // @ts-expect-error - Testing with mock service function
       serviceFunction: mockServiceFunctionSpy,
       provider: mockProvider,
     })
@@ -97,7 +98,7 @@ function cachedServiceFunction<TParams extends unknown[], TResult>() {
 
 describe('cacheFactory', () => {
   beforeEach(() => {
-    // @ts-expect-error
+    // @ts-expect-error - Mock provider clear method for testing
     mockProvider.clear()
     jest.clearAllMocks()
     mockServiceFunctionSpy.mockClear()
@@ -113,7 +114,7 @@ describe('cacheFactory', () => {
 
     expect(cachedEntry).not.toBeNull()
 
-    const decompressedEntry = pako.inflate(cachedEntry, {
+    const decompressedEntry = inflate(cachedEntry, {
       to: 'string',
     })
     const entry = JSON.parse(decompressedEntry)
@@ -130,14 +131,14 @@ describe('cacheFactory', () => {
       await cachedServiceFunction().cachedFunction(params)
 
       const cachedEntry = mockProvider.getItem(hashedParams)
-      const decompressedEntry = pako.inflate(cachedEntry, {
+      const decompressedEntry = inflate(cachedEntry, {
         to: 'string',
       })
       const entry = JSON.parse(decompressedEntry)
 
       // forcing the cache to expire
       entry.timestamp -= expireTime + 1
-      const expiredCompressedEntry = pako.deflate(JSON.stringify(entry))
+      const expiredCompressedEntry = deflate(JSON.stringify(entry))
 
       mockProvider.setItem(hashedParams, expiredCompressedEntry)
 
@@ -198,7 +199,7 @@ describe('cacheFactory with multiple params', () => {
   const multiHashedParams2 = hash([defaultAssignment, ['b', 2, { foo: 'baz' }]])
 
   beforeEach(() => {
-    // @ts-expect-error
+    // @ts-expect-error - Mock provider clear method for testing
     mockProvider.clear()
     jest.clearAllMocks()
     mockServiceFunctionSpy.mockClear()
@@ -214,7 +215,7 @@ describe('cacheFactory with multiple params', () => {
     const cachedEntry = mockProvider.getItem(multiHashedParams1)
 
     expect(cachedEntry).not.toBeNull()
-    const decompressedEntry = pako.inflate(cachedEntry, { to: 'string' })
+    const decompressedEntry = inflate(cachedEntry, { to: 'string' })
     const entry = JSON.parse(decompressedEntry)
 
     expect(entry.data).toEqual(defaultResponse)
@@ -250,7 +251,7 @@ describe('cacheFactory with multiple params', () => {
 
 describe('cacheFactory respecting function name as namespace', () => {
   beforeEach(() => {
-    // @ts-expect-error
+    // @ts-expect-error - Mock provider clear method for testing
     mockProvider.clear()
     jest.clearAllMocks()
     mockServiceFunctionSpy.mockClear()
@@ -265,7 +266,7 @@ describe('cacheFactory respecting function name as namespace', () => {
       return cacheFactory<TParams, TResult>({
         params,
         expire: expireTime,
-        //@ts-ignore
+        // @ts-expect-error - Testing with another mock function
         serviceFunction: anotherMockFunction,
         provider: mockProvider,
       })
@@ -295,8 +296,8 @@ describe('cacheFactory respecting function name as namespace', () => {
 
     expect(cachedEntry1).not.toBeNull()
     expect(cachedEntry2).not.toBeNull()
-    const decompressedEntry1 = pako.inflate(cachedEntry1, { to: 'string' })
-    const decompressedEntry2 = pako.inflate(cachedEntry2, { to: 'string' })
+    const decompressedEntry1 = inflate(cachedEntry1, { to: 'string' })
+    const decompressedEntry2 = inflate(cachedEntry2, { to: 'string' })
     const entry1 = JSON.parse(decompressedEntry1)
     const entry2 = JSON.parse(decompressedEntry2)
 
