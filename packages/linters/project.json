@@ -22,7 +22,7 @@
         "cwd": "packages/linters",
         "commands": [
           {
-            "command": "jest --coverage --ci --passWithNoTests"
+            "command": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage --ci --passWithNoTests"
           }
         ]
       }
