@@ -296,8 +296,8 @@ describe('cacheFactory respecting function name as namespace', () => {
 
     expect(cachedEntry1).not.toBeNull()
     expect(cachedEntry2).not.toBeNull()
-    const decompressedEntry1 = pako.inflate(cachedEntry1, { to: 'string' })
-    const decompressedEntry2 = pako.inflate(cachedEntry2, { to: 'string' })
+    const decompressedEntry1 = inflate(cachedEntry1, { to: 'string' })
+    const decompressedEntry2 = inflate(cachedEntry2, { to: 'string' })
     const entry1 = JSON.parse(decompressedEntry1)
     const entry2 = JSON.parse(decompressedEntry2)
 
