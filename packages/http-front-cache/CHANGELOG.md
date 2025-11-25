@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/juntossomosmais/time-out-market/compare/http-front-cache-v1.1.0...http-front-cache-v1.2.0) (2025-11-25)
+
+
+### Features
+
+* **http-front-cache:** implement cache assignment ([#327](https://github.com/juntossomosmais/time-out-market/issues/327)) ([7d424f2](https://github.com/juntossomosmais/time-out-market/commit/7d424f262ef1f991d472c537991fa48e3e3ebe18))
+
 ## [1.1.0](https://github.com/juntossomosmais/time-out-market/compare/http-front-cache-v1.0.0...http-front-cache-v1.1.0) (2025-08-14)
 
 
