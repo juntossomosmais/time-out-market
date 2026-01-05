@@ -1,2 +1,5 @@
 /node_modules
 *.md
+
+/.nx/cache
+/.nx/workspace-data

@@ -2,7 +2,8 @@
   "prerelease": false,
   "packages": {
     "packages/linters": {},
-    "packages/http-front-cache": {}
+    "packages/http-front-cache": {},
+    "packages/rupture-scss": {}
   },
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
 }

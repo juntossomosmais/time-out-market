@@ -1,13 +1,13 @@
 {
   "name": "@juntossomosmais/http-front-cache",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "dependencies": {
     "object-hash": "^3.0.0",
     "pako": "^2.1.0"
   },
   "devDependencies": {
     "@types/object-hash": "^3.0.6",
-    "@types/pako": "^2.0.3"
+    "@types/pako": "^2.0.4"
   },
   "type": "commonjs",
   "main": "./index.js",

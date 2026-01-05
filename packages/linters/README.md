@@ -41,6 +41,9 @@ First you need to install peer dependencies:
 npm i -D @commitlint/cli @commitlint/config-conventional prettier postcss stylelint stylelint-config-recommended stylelint-order eslint eslint-import-resolver-typescript eslint-import-resolver-babel-plugin-root-import eslint-plugin-import eslint-plugin-sonarjs @typescript-eslint/eslint-plugin @typescript-eslint/parser
 
 npm i @juntossomosmais/atomium-tokens
+
+# If you are using ESLint Flat config:
+npm i -D @eslint/js globals eslint-plugin-react eslint-plugin-react-hooks eslint-config-prettier typescript-eslint
 ```
 
 Then install the linters package:
@@ -72,7 +75,7 @@ module.exports = {
 }
 ```
 
-### ESLint
+### ESLint Legacy (.eslintrc)
 
 Create a [`eslint`](https://eslint.org/) file in the root of your project with the following content:
 
@@ -120,6 +123,57 @@ module.exports = {
 }
 ```
 
+#### ESLint Flat Config (v9+)
+
+For projects using ESLint v9 or later with the new Flat config format, create an `eslint.config.mjs` file in the root of your project with the following content:
+
+```js
+import config from '@juntossomosmais/linters/eslint-config/flat/base.mjs'
+
+export default [
+  ...config,
+  {
+    // Your custom rules here
+  }
+]
+```
+
+If you are using custom groups of `import/order` rules with Flat config, you can use the following configs example:
+
+```js
+import config from '@juntossomosmais/linters/eslint-config/flat/base.mjs'
+
+const importsConfig = config.find(config => config.name === '@jsm/eslint-config/imports')
+
+export default [
+  ...config,
+  {
+    rules: {
+      'import-x/order': [
+        'error',
+        {
+          ...importsConfig.rules['import-x/order'][1],
+          groups: ['builtin', 'external', 'internal', 'parent'],
+          'newlines-between': 'always',
+          pathGroups: [
+            {
+              pattern: 'react',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              group: 'internal',
+              pattern: '~/**',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  // Your another custom config here
+]
+```
+
 #### React
 
 Install the following peer dependencies:
@@ -141,6 +195,19 @@ module.exports = {
   },
   // Your another custom config here
 }
+```
+
+For React with Flat config, create an `eslint.config.js` file with:
+
+```js
+import baseConfig from '@juntossomosmais/linters/eslint.flat.config.react.js'
+
+export default [
+  ...baseConfig,
+  {
+    // Your custom rules here
+  }
+]
 ```
 
 ### Stylelint

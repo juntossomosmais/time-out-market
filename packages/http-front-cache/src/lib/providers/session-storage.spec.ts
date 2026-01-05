@@ -3,7 +3,8 @@ import { sessionStorageProvider } from './session-storage'
 describe('sessionStorageProvider', () => {
   beforeEach(() => {
     const mockSessionStorage = (() => {
-      let store = {}
+      const store = {}
+
       return {
         getItem: jest.fn((key) => store[key] as string),
         setItem: jest.fn((key, value: string) => {
@@ -19,9 +20,11 @@ describe('sessionStorageProvider', () => {
       value: mockSessionStorage,
     })
   })
+
   it('should get item from sessionStorage', () => {
     const key = 'testKey'
     const value = new Uint8Array([1, 2, 3])
+
     sessionStorageProvider.setItem(key, value)
 
     const result = sessionStorageProvider.getItem(key)

@@ -1,6 +1,6 @@
 {
   "name": "@juntossomosmais/linters",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "type": "commonjs",
   "repository": {
     "type": "git",
@@ -14,13 +14,16 @@
   "exports": {
     "./*": "./src/*"
   },
+  "scripts": {
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
+  },
   "peerDependencies": {
     "@commitlint/cli": ">= 17",
     "@commitlint/config-conventional": ">= 17",
     "@juntossomosmais/atomium-tokens": ">= 1",
     "@typescript-eslint/eslint-plugin": ">= 6",
     "@typescript-eslint/parser": ">= 6",
-    "eslint": ">= 8 && < 9",
+    "eslint": ">= 8",
     "eslint-import-resolver-babel-plugin-root-import": ">= 1",
     "eslint-import-resolver-typescript": ">= 3",
     "eslint-plugin-import": ">= 2",

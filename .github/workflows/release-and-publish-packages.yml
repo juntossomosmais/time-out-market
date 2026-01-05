@@ -64,15 +64,23 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         run: npm ci --legacy-peer-deps --include=optional
 
-      - name: show affected packages
-        if: ${{ steps.release.outputs.releases_created }}
-        run: |
-          npx nx show projects --affected
+      - name: Build and publish @juntossomosmais/linters
+        if: ${{ steps.release.outputs['packages/linters--release_created'] }}
+        run: npx nx run @juntossomosmais/linters:publish-package
+        continue-on-error: false
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish affected packages
-        if: ${{ steps.release.outputs.releases_created }}
-        run: |
-          npm run publish-package
+      - name: Build and publish @juntossomosmais/http-front-cache
+        if: ${{ steps.release.outputs['packages/http-front-cache--release_created'] }}
+        run: npx nx run @juntossomosmais/http-front-cache:publish-package
+        continue-on-error: false
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and publish @juntossomosmais/rupture-scss
+        if: ${{ steps.release.outputs['packages/rupture-scss--release_created'] }}
+        run: npx nx run rupture-scss:publish-package
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

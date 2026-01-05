@@ -1,5 +1,6 @@
 import { cacheFactory } from './cache-factory'
 import { sessionStorageProvider } from './providers/session-storage'
+import { removeCacheByParamFactory } from './remove-cache-by-param'
 import { ServiceFunction } from './types'
 
 /**
@@ -13,11 +14,12 @@ import { ServiceFunction } from './types'
  * @param serviceFunction: the service function that will be cached
  * @param expire: the time in milliseconds that the cache will be valid
  */
-export const cacheOnSessionStorage = <TParams extends unknown[], TResult>(
+
+export function cacheOnSessionStorage<TParams extends unknown[], TResult>(
   serviceFunction: ServiceFunction<TParams, TResult>,
   expire: number
-): ServiceFunction<TParams, TResult> => {
-  return async (...params: TParams): Promise<TResult> => {
+) {
+  const cachedFunction = async (...params: TParams): Promise<TResult> => {
     return cacheFactory<TParams, TResult>({
       params,
       expire,
@@ -25,4 +27,11 @@ export const cacheOnSessionStorage = <TParams extends unknown[], TResult>(
       provider: sessionStorageProvider,
     })
   }
+
+  const removeCacheByParamOnSessionStorage = removeCacheByParamFactory(
+    sessionStorageProvider,
+    serviceFunction
+  )
+
+  return { cachedFunction, removeCacheByParamOnSessionStorage }
 }
