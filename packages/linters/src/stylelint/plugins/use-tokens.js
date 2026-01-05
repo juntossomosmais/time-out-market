@@ -23,7 +23,7 @@ const meta = {
 /**
  * @type {import('stylelint').Rule}
  */
-const ruleFunction = (primaryOption, _, context) => {
+const ruleFunction = (primaryOption) => {
   return function (root, result) {
     const validOptions = stylelint.utils.validateOptions(result, ruleName, {
       actual: primaryOption,
@@ -52,18 +52,12 @@ const ruleFunction = (primaryOption, _, context) => {
             decl.value = `var(--${tokenName})`
           }
 
-          //TODO: in stylelint@16 should remove context.fix and pass `fix` callback to report function. https://stylelint.io/developer-guide/rules#context
-          if (context.fix) {
-            fix()
-
-            return
-          }
-
           stylelint.utils.report({
             message: messages.useToken({ tokenName, tokenValue }),
             node: decl,
             result,
             ruleName,
+            fix,
           })
         }
       })
@@ -71,8 +65,8 @@ const ruleFunction = (primaryOption, _, context) => {
   }
 }
 
-module.exports = stylelint.createPlugin(ruleName, ruleFunction)
+ruleFunction.ruleName = ruleName
+ruleFunction.messages = messages
+ruleFunction.meta = meta
 
-module.exports.ruleName = ruleName
-module.exports.messages = messages
-module.exports.meta = meta
+module.exports = stylelint.createPlugin(ruleName, ruleFunction)
