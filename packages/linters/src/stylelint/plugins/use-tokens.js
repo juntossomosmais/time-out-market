@@ -7,17 +7,23 @@ const messages = stylelint.utils.ruleMessages(ruleName, {
     `Avoid using ${tokenValue} directly. Use var(--${tokenName}) instead. Read more: https://github.com/juntossomosmais/frontend-guideline`,
 })
 
+/**
+ * @type {import('stylelint').RuleMeta}
+ */
 const meta = {
   docs: {
     description: 'Disallow the use of static values in favor of design tokens.',
     category: 'Best Practices',
     recommended: true,
   },
-  fixable: null,
+  fixable: true,
   schema: [],
 }
 
-module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
+/**
+ * @type {import('stylelint').Rule}
+ */
+const ruleFunction = (primaryOption) => {
   return function (root, result) {
     const validOptions = stylelint.utils.validateOptions(result, ruleName, {
       actual: primaryOption,
@@ -34,6 +40,10 @@ module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
           tokenName.includes(output)
         )
 
+        const fix = () => {
+          decl.value = `var(--${tokenName})`
+        }
+
         const regexPattern = new RegExp(
           `(^|\\s)(${tokens[tokenName]}|#${
             tokens[tokens[tokenName]]
@@ -47,13 +57,16 @@ module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
             node: decl,
             result,
             ruleName,
+            fix,
           })
         }
       })
     })
   }
-})
+}
 
-module.exports.ruleName = ruleName
-module.exports.messages = messages
-module.exports.meta = meta
+ruleFunction.ruleName = ruleName
+ruleFunction.messages = messages
+ruleFunction.meta = meta
+
+module.exports = stylelint.createPlugin(ruleName, ruleFunction)

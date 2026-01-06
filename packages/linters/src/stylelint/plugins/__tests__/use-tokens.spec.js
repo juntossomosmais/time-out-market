@@ -1,15 +1,16 @@
 const stylelint = require('stylelint')
 
-const { messages } = require('../use-tokens')
+const plugin = require('../use-tokens')
+const messages = plugin.rule.messages
 
 const validCss = '.class { color: var(--color-primary); }'
 const invalidCss = '.class { color: #fff; }'
+const invalidCssTwoProps =
+  '.class { color: #fff; }; .class-border { border-radius: 4px }'
 
 const config = {
   plugins: ['@juntossomosmais/linters/stylelint/plugins/use-tokens.js'],
-  rules: {
-    'plugin/use-tokens': true,
-  },
+  rules: { 'plugin/use-tokens': true },
 }
 
 describe('use-tokens rule', () => {
@@ -26,19 +27,13 @@ describe('use-tokens rule', () => {
   })
 
   it('should accepts valid CSS', async () => {
-    const result = await stylelint.lint({
-      code: validCss,
-      config,
-    })
+    const result = await stylelint.lint({ code: validCss, config })
 
     expect(result.results[0].warnings).toHaveLength(0)
   })
 
   it('should rejects invalid CSS', async () => {
-    const result = await stylelint.lint({
-      code: invalidCss,
-      config,
-    })
+    const result = await stylelint.lint({ code: invalidCss, config })
 
     expect(result.results[0].warnings).toHaveLength(1)
     expect(result.results[0].warnings[0].rule).toBe('plugin/use-tokens')
@@ -50,6 +45,26 @@ describe('use-tokens rule', () => {
         tokenName: 'color-neutral-white',
         tokenValue: '#fff',
       })
+    )
+  })
+
+  it('should fix invalid CSS', async () => {
+    const result = await stylelint.lint({ code: invalidCss, config, fix: true })
+
+    expect(result.results[0].warnings).toHaveLength(0)
+    expect(result._output).toBe('.class { color: var(--color-neutral-white); }')
+  })
+
+  it('should fix invalid CSS when have two props', async () => {
+    const result = await stylelint.lint({
+      code: invalidCssTwoProps,
+      config,
+      fix: true,
+    })
+
+    expect(result.results[0].warnings).toHaveLength(0)
+    expect(result._output).toBe(
+      '.class { color: var(--color-neutral-white); }; .class-border { border-radius: var(--spacing-xxsmall) }'
     )
   })
 
