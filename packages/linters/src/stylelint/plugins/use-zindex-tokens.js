@@ -25,7 +25,7 @@ const meta = {
 /**
  * @type {import('stylelint').Rule}
  */
-module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
+const ruleFunction = (primaryOption) => {
   return function (root, result) {
     const validOptions = stylelint.utils.validateOptions(result, ruleName, {
       actual: primaryOption,
@@ -71,8 +71,10 @@ module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
       }
     })
   }
-})
+}
 
-module.exports.ruleName = ruleName
-module.exports.messages = messages
-module.exports.meta = meta
+ruleFunction.ruleName = ruleName
+ruleFunction.messages = messages
+ruleFunction.meta = meta
+
+module.exports = stylelint.createPlugin(ruleName, ruleFunction)

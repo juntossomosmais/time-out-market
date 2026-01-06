@@ -1,6 +1,7 @@
 const stylelint = require('stylelint')
 
-const { messages } = require('../use-zindex-tokens')
+const plugin = require('../use-zindex-tokens')
+const messages = plugin.rule.messages
 
 const validCss = '.class { z-index: var(--zindex-1); }'
 const invalidCss = '.class { z-index: 10; }'
@@ -8,9 +9,7 @@ const invalidUnknownZIndexTokenValue = '.class { z-index: 180; }'
 
 const config = {
   plugins: ['@juntossomosmais/linters/stylelint/plugins/use-zindex-tokens.js'],
-  rules: {
-    'plugin/use-zindex-tokens': true,
-  },
+  rules: { 'plugin/use-zindex-tokens': true },
 }
 
 describe('use-zindex-tokens rule', () => {
@@ -29,19 +28,13 @@ describe('use-zindex-tokens rule', () => {
   })
 
   it('should accepts valid CSS', async () => {
-    const result = await stylelint.lint({
-      code: validCss,
-      config,
-    })
+    const result = await stylelint.lint({ code: validCss, config })
 
     expect(result.results[0].warnings).toHaveLength(0)
   })
 
   it('should rejects invalid CSS', async () => {
-    const result = await stylelint.lint({
-      code: invalidCss,
-      config,
-    })
+    const result = await stylelint.lint({ code: invalidCss, config })
 
     expect(result.results[0].warnings).toHaveLength(1)
     expect(result.results[0].warnings[0].rule).toBe('plugin/use-zindex-tokens')
@@ -52,14 +45,10 @@ describe('use-zindex-tokens rule', () => {
   })
 
   it('should fix invalid CSS', async () => {
-    const result = await stylelint.lint({
-      code: invalidCss,
-      config,
-      fix: true,
-    })
+    const result = await stylelint.lint({ code: invalidCss, config, fix: true })
 
     expect(result.results[0].warnings).toHaveLength(0)
-    expect(result.output).toBe('.class { z-index: var(--zindex-10); }')
+    expect(result._output).toBe('.class { z-index: var(--zindex-10); }')
   })
 
   it('should not fix invalid CSS with unknown static values', async () => {
