@@ -68,6 +68,19 @@ describe('use-tokens rule', () => {
     )
   })
 
+  it('should fix only the token value in multi-value properties', async () => {
+    const result = await stylelint.lint({
+      code: '.class { border: 1px solid #fff; }',
+      config,
+      fix: true,
+    })
+
+    expect(result.results[0].warnings).toHaveLength(0)
+    expect(result._output).toBe(
+      '.class { border: 1px solid var(--color-neutral-white); }'
+    )
+  })
+
   it('should not report custom properties', async () => {
     const result = await stylelint.lint({
       code: '.class { --color-primary: #000; }',

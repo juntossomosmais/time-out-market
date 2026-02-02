@@ -40,16 +40,20 @@ const ruleFunction = (primaryOption) => {
           tokenName.includes(output)
         )
 
-        const fix = () => {
-          decl.value = `var(--${tokenName})`
-        }
-
         const regexPattern = new RegExp(
           `(^|\\s)(${tokens[tokenName]}|#${
             tokens[tokens[tokenName]]
           })(\\s|;|$)`,
           'g'
         )
+
+        const fix = () => {
+          regexPattern.lastIndex = 0
+          decl.value = decl.value.replace(
+            regexPattern,
+            `$1var(--${tokenName})$3`
+          )
+        }
 
         if (!isSpecificTokens && regexPattern.test(decl.value)) {
           stylelint.utils.report({
