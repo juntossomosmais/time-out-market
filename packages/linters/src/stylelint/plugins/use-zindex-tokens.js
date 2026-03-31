@@ -22,6 +22,14 @@ const meta = {
   schema: [],
 }
 
+// Pre-build a Map from numeric z-index value (as string) to token name,
+// so lookups are O(1) instead of O(tokens) per declaration.
+const zIndexTokenMap = new Map(
+  Object.entries(tokens)
+    .filter(([, value]) => /^\d+$/.test(value))
+    .map(([tokenName, value]) => [value, tokenName])
+)
+
 /**
  * @type {import('stylelint').Rule}
  */
@@ -39,11 +47,7 @@ const ruleFunction = (primaryOption) => {
       const zIndexValue = parseInt(decl.value, 10)
 
       if (!isNaN(zIndexValue)) {
-        const tokenName = Object.keys(tokens).find(
-          (key) =>
-            tokens[key] === String(zIndexValue) ||
-            tokens[key] === `var(${zIndexValue})`
-        )
+        const tokenName = zIndexTokenMap.get(String(zIndexValue))
 
         if (tokenName) {
           const fix = () => {

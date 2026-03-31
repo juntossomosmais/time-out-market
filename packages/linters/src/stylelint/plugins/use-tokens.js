@@ -20,6 +20,27 @@ const meta = {
   schema: [],
 }
 
+// Pre-compute filtered token list and pre-compile regexes once at module load.
+// This avoids re-creating RegExp objects and re-filtering on every CSS declaration.
+const specificTokens = ['zindex', 'border-radius']
+const compiledTokenChecks = Object.entries(tokens)
+  .filter(
+    ([tokenName]) =>
+      !specificTokens.some((segment) => tokenName.includes(segment))
+  )
+  .map(([tokenName, tokenValue]) => {
+    const alias = tokens[tokenValue]
+    const valuePattern = alias ? `${tokenValue}|#${alias}` : tokenValue
+    const pattern = `(^|\\s)(${valuePattern})(\\s|;|$)`
+
+    return {
+      tokenName,
+      tokenValue,
+      testRegex: new RegExp(pattern),
+      replaceRegex: new RegExp(pattern, 'g'),
+    }
+  })
+
 /**
  * @type {import('stylelint').Rule}
  */
@@ -34,37 +55,27 @@ const ruleFunction = (primaryOption) => {
     root.walkDecls((decl) => {
       if (decl.prop.startsWith('--')) return
 
-      Object.entries(tokens).forEach(([tokenName, tokenValue]) => {
-        const specificTokens = ['zindex', 'border-radius']
-        const isSpecificTokens = specificTokens.some((output) =>
-          tokenName.includes(output)
-        )
-
-        const regexPattern = new RegExp(
-          `(^|\\s)(${tokens[tokenName]}|#${
-            tokens[tokens[tokenName]]
-          })(\\s|;|$)`,
-          'g'
-        )
-
-        const fix = () => {
-          regexPattern.lastIndex = 0
-          decl.value = decl.value.replace(
-            regexPattern,
-            `$1var(--${tokenName})$3`
-          )
-        }
-
-        if (!isSpecificTokens && regexPattern.test(decl.value)) {
+      for (const {
+        tokenName,
+        tokenValue,
+        testRegex,
+        replaceRegex,
+      } of compiledTokenChecks) {
+        if (testRegex.test(decl.value)) {
           stylelint.utils.report({
             message: messages.useToken({ tokenName, tokenValue }),
             node: decl,
             result,
             ruleName,
-            fix,
+            fix: () => {
+              decl.value = decl.value.replace(
+                replaceRegex,
+                `$1var(--${tokenName})$3`
+              )
+            },
           })
         }
-      })
+      }
     })
   }
 }
