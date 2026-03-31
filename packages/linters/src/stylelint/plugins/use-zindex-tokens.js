@@ -7,6 +7,10 @@ const messages = stylelint.utils.ruleMessages(ruleName, {
     `Use ${tokenName} instead of ${tokenValue} for z-index values.`,
   noStaticValue: 'Avoid using static values for z-index. Use a token instead.',
 })
+
+/**
+ * @type {import('stylelint').RuleMeta}
+ */
 const meta = {
   docs: {
     description:
@@ -14,11 +18,22 @@ const meta = {
     category: 'Best Practices',
     recommended: true,
   },
-  fixable: null,
+  fixable: true,
   schema: [],
 }
 
-module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
+// Pre-build a Map from numeric z-index value (as string) to token name,
+// so lookups are O(1) instead of O(tokens) per declaration.
+const zIndexTokenMap = new Map(
+  Object.entries(tokens)
+    .filter(([, value]) => /^\d+$/.test(value))
+    .map(([tokenName, value]) => [value, tokenName])
+)
+
+/**
+ * @type {import('stylelint').Rule}
+ */
+const ruleFunction = (primaryOption) => {
   return function (root, result) {
     const validOptions = stylelint.utils.validateOptions(result, ruleName, {
       actual: primaryOption,
@@ -32,19 +47,20 @@ module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
       const zIndexValue = parseInt(decl.value, 10)
 
       if (!isNaN(zIndexValue)) {
-        const tokenName = Object.keys(tokens).find(
-          (key) =>
-            tokens[key] === String(zIndexValue) ||
-            tokens[key] === `var(${zIndexValue})`
-        )
+        const tokenName = zIndexTokenMap.get(String(zIndexValue))
 
         if (tokenName) {
+          const fix = () => {
+            decl.value = `var(--${tokenName})`
+          }
+
           stylelint.utils.report({
             message: messages.useToken({
               tokenName,
               tokenValue: tokens[tokenName],
             }),
             node: decl,
+            fix,
             result,
             ruleName,
           })
@@ -59,8 +75,10 @@ module.exports = stylelint.createPlugin(ruleName, (primaryOption) => {
       }
     })
   }
-})
+}
 
-module.exports.ruleName = ruleName
-module.exports.messages = messages
-module.exports.meta = meta
+ruleFunction.ruleName = ruleName
+ruleFunction.messages = messages
+ruleFunction.meta = meta
+
+module.exports = stylelint.createPlugin(ruleName, ruleFunction)
