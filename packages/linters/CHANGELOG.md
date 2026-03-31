@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.24.0...linters-v0.25.0) (2026-03-31)
+
+
+### Features
+
+* **linters:** add fixable in use-tokens, use-zindex rule ([#336](https://github.com/juntossomosmais/time-out-market/issues/336)) ([0969221](https://github.com/juntossomosmais/time-out-market/commit/0969221102025ba2adf774440794e63248ac8a0a))
+
 ## [0.24.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.23.0...linters-v0.24.0) (2025-04-15)
 
 
