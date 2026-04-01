@@ -2,6 +2,7 @@ import js from '@eslint/js'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import importPlugin from 'eslint-plugin-import'
 import sonarjs from 'eslint-plugin-sonarjs'
+import unicorn from 'eslint-plugin-unicorn'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
@@ -107,6 +108,18 @@ export default [
 
   // Prettier config
   eslintConfigPrettier,
+
+  // Unicorn — idiomatic JS/TS best practices
+  {
+    name: '@jsm/eslint-config/unicorn',
+    plugins: { unicorn },
+    rules: {
+      'unicorn/no-negated-condition': 'error',
+      'unicorn/prefer-array-some': 'error',
+      'unicorn/prefer-number-properties': 'error',
+      'unicorn/prefer-string-replace-all': 'error',
+    },
+  },
 
   // SonarJS config
   {
