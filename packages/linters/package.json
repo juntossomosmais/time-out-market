@@ -18,23 +18,23 @@
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
   },
   "peerDependencies": {
-    "@commitlint/cli": ">= 17",
-    "@commitlint/config-conventional": ">= 17",
-    "@juntossomosmais/atomium-tokens": ">= 1",
-    "@typescript-eslint/eslint-plugin": ">= 6",
-    "@typescript-eslint/parser": ">= 6",
-    "eslint": ">= 8",
+    "@commitlint/cli": ">=21",
+    "@commitlint/config-conventional": ">=21",
+    "@juntossomosmais/atomium-tokens": ">=2",
+    "@typescript-eslint/eslint-plugin": ">=8",
+    "@typescript-eslint/parser": ">=8",
+    "eslint": ">=10",
     "eslint-import-resolver-babel-plugin-root-import": ">= 1",
-    "eslint-import-resolver-typescript": ">= 3",
+    "eslint-import-resolver-typescript": ">=4",
     "eslint-plugin-import": ">= 2",
-    "eslint-plugin-sonarjs": ">= 1",
+    "eslint-plugin-sonarjs": ">=4",
     "postcss-scss": ">= 4",
-    "postcss-styled-syntax": ">= 0.4",
+    "postcss-styled-syntax": ">=0.7",
     "postcss": ">= 8",
     "prettier": ">= 3",
-    "stylelint-config-recommended": ">= 13",
-    "stylelint-config-standard-scss": ">= 3",
-    "stylelint-order": ">= 6",
-    "stylelint": ">= 15"
+    "stylelint-config-recommended": ">=18",
+    "stylelint-config-standard-scss": ">=17",
+    "stylelint-order": ">=8",
+    "stylelint": ">=17"
   }
 }
