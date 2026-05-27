@@ -555,6 +555,7 @@ $default-scale-names: 'xs' 's' 'm' 'l' 'xl' 'hd';
     // instead of a hardcoded name list, so consumers' custom scales are honored.
     $index: _get-scale-number($scale-point);
     $scale: map.get($rupture, scale);
+    // Clamp to the last scale entry if _get-scale-number()'s fallback (2/3/4) overshoots a short custom scale.
     $max-width-value: if(
       $index <= list.length($scale),
       list.nth($scale, $index),
