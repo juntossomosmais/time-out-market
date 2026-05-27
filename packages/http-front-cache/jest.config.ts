@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'http-front-cache',
   preset: '../../jest.preset.js',

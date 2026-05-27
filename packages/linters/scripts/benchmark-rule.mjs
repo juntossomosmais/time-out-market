@@ -52,14 +52,18 @@ function generateUseTokensCSS() {
 
   // Invalid declarations that should be flagged
   for (const [tokenName, tokenValue] of hexColorTokens) {
-    lines.push(`.rule-${tokenName} { color: ${tokenValue}; }`)
-    lines.push(`.bg-${tokenName} { background-color: ${tokenValue}; }`)
-    lines.push(`.border-${tokenName} { border: 1px solid ${tokenValue}; }`)
+    lines.push(
+      `.rule-${tokenName} { color: ${tokenValue}; }`,
+      `.bg-${tokenName} { background-color: ${tokenValue}; }`,
+      `.border-${tokenName} { border: 1px solid ${tokenValue}; }`
+    )
   }
 
   for (const [tokenName, tokenValue] of spacingTokens) {
-    lines.push(`.spacing-${tokenName} { margin: ${tokenValue}; }`)
-    lines.push(`.padding-${tokenName} { padding: ${tokenValue}; }`)
+    lines.push(
+      `.spacing-${tokenName} { margin: ${tokenValue}; }`,
+      `.padding-${tokenName} { padding: ${tokenValue}; }`
+    )
   }
 
   // Valid declarations (should pass without warnings)
@@ -96,10 +100,10 @@ function generateUseZIndexCSS() {
 }
 
 const baseCSS =
-  ruleName =
-== 'use-tokens' ? generateUseTokensCSS() : generateUseZIndexCSS()
+  ruleName === 'use-tokens' ? generateUseTokensCSS() : generateUseZIndexCSS()
 
 let css = ''
+
 for (let i = 0; i < DUPLICATE_SOURCE_N_TIMES; i++) {
   css += `${baseCSS}\n\n`
 }

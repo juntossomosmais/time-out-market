@@ -29,7 +29,7 @@
   },
   "namedInputs": {
     "sharedGlobals": [
-      "{workspaceRoot}/.eslintrc.js",
+      "{workspaceRoot}/eslint.config.mjs",
       "{workspaceRoot}/tsconfig.base.json",
       "{workspaceRoot}/nx.json"
     ],

@@ -8,17 +8,16 @@ ADRs document significant architectural and technical decisions made in this pro
 
 ### Current ADRs
 
-- [ADR 0001: Maintain ESLint v8](./architecture-decision-records/0001-maintain-eslint-v8.md) - Decision to stay on ESLint v8 for stability
-- [ADR 0002: Tooling Dependency Compatibility Matrix](./architecture-decision-records/0002-tooling-dependency-compatibility.md) - Version constraints and compatibility rules
+- [ADR: Tooling Dependency Compatibility Matrix](./architecture-decision-records/202605-tooling-dependency-compatibility.md) - Version constraints and compatibility rules
 
 ### Creating a New ADR
 
 When making significant technical decisions, create a new ADR:
 
-1. Create a new file in `architecture-decision-records/` with the format: `XXXX-short-title.md`
-2. Use the next sequential number (0002, 0003, etc.)
+1. Create a new file in `architecture-decision-records/` with the format: `YYYYMM-short-title.md`
+2. Use the current year and month as the prefix (e.g. `202605-short-title.md`)
 3. Follow the structure:
-   - **Title**: ADR XXXX: Descriptive Title
+   - **Title**: ADR: Descriptive Title
    - **Date and Author**: 🗓️ YYYY-MM-DD · ✍️ [@author](link)
    - **Context**: What is the issue we're facing?
    - **Decision Drivers**: What factors influenced the decision?
