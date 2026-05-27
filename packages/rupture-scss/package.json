@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/juntossomosmais/time-out-market/tree/main/packages/rupture-scss#readme",
   "peerDependencies": {
-    "sass": "^1.32.0"
+    "sass": "^1.100.0"
   },
   "engines": {
     "node": ">=14.0.0"
