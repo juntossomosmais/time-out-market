@@ -10,7 +10,7 @@ Accepted
 
 Modern JavaScript tooling has complex interdependencies. To prevent breaking dependency combinations from being introduced accidentally, we document the current version constraints and their interdependencies in a single matrix.
 
-This matrix reflects the state after adopting **ESLint v10** with the flat config (`eslint.config.*`) format as the standard. ESLint v10 removed the legacy eslintrc system entirely (`.eslintrc.*` files are no longer loaded, the `ESLINT_USE_FLAT_CONFIG` environment variable is ignored, and the `LegacyESLint` API was removed). The shared `@juntossomosmais/linters` package still publishes the legacy eslintrc exports (`eslint.config.js`, `eslint.config.react.js`) for downstream consumers that have not migrated yet; those files are consumed under the consumers' own ESLint v8/v9 install and are not loaded by ESLint v10.
+This matrix reflects the state after adopting **ESLint v10** with the flat config (`eslint.config.*`) format as the standard. ESLint v10 removed the legacy eslintrc system entirely (`.eslintrc.*` files are no longer loaded, the `ESLINT_USE_FLAT_CONFIG` environment variable is ignored, and the `LegacyESLint` API was removed). The shared `@juntossomosmais/linters` package requires ESLint v10 (`eslint` peer dependency is `>=10`); consumers are expected to upgrade rather than stay on older versions. The legacy eslintrc exports (`eslint.config.js`, `eslint.config.react.js`) remain published purely as a migration aid for downstream consumers mid-migration; they are not loaded by ESLint v10 and the package does not support being installed against ESLint v8/v9.
 
 ## Decision Drivers
 
@@ -177,6 +177,7 @@ These scenarios require extra caution:
 
 | Scenario | Note |
 |----------|------|
+| ESLint v8/v9 install | Not supported. The `eslint` peer dependency is `>=10`; consumers must upgrade to v10 |
 | ESLint v10 + legacy `.eslintrc.*` | Not supported. ESLint v10 only loads flat config; consumers must migrate to `eslint.config.*` |
 | `eslint-plugin-import` / `eslint-plugin-react` on ESLint v10 | Their declared peer ranges may lag behind v10. Verify lint runs end to end after upgrades |
 
