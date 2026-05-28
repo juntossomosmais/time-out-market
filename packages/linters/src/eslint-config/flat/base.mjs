@@ -1,4 +1,5 @@
 import js from '@eslint/js'
+import { defineConfig } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import importPlugin from 'eslint-plugin-import'
 import sonarjs from 'eslint-plugin-sonarjs'
@@ -86,7 +87,7 @@ export default [
   },
 
   // TypeScript config
-  ...tseslint.config({
+  ...defineConfig({
     name: '@jsm/eslint-config/typescript',
     files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts', '**/*.vue'],
     plugins: {

@@ -31,7 +31,7 @@ const compiledTokenChecks = Object.entries(tokens)
   .map(([tokenName, tokenValue]) => {
     const alias = tokens[tokenValue]
     const valuePattern = alias ? `${tokenValue}|#${alias}` : tokenValue
-    const pattern = `(^|\\s)(${valuePattern})(\\s|;|$)`
+    const pattern = String.raw`(^|\s)(${valuePattern})(\s|;|$)`
 
     return {
       tokenName,

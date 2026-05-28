@@ -44,9 +44,9 @@ const ruleFunction = (primaryOption) => {
     root.walkDecls((decl) => {
       if (decl.prop !== 'z-index') return
 
-      const zIndexValue = parseInt(decl.value, 10)
+      const zIndexValue = Number.parseInt(decl.value, 10)
 
-      if (!isNaN(zIndexValue)) {
+      if (!Number.isNaN(zIndexValue)) {
         const tokenName = zIndexTokenMap.get(String(zIndexValue))
 
         if (tokenName) {
