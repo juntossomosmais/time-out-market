@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/juntossomosmais/time-out-market/compare/http-front-cache-v1.2.0...http-front-cache-v1.3.0) (2026-05-28)
+
+
+### Features
+
+* **linters:** adopt eslint v10 with flat config self-lint ([#346](https://github.com/juntossomosmais/time-out-market/issues/346)) ([ecf51ed](https://github.com/juntossomosmais/time-out-market/commit/ecf51ed95490433df42acacd02cb9cabb725f25e))
+
 ## [1.2.0](https://github.com/juntossomosmais/time-out-market/compare/http-front-cache-v1.1.0...http-front-cache-v1.2.0) (2025-11-25)
 
 
