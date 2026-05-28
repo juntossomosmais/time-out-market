@@ -1,7 +1,7 @@
 import js from '@eslint/js'
 import { defineConfig } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier'
-import importPlugin from 'eslint-plugin-import-x'
+import importXPlugin from 'eslint-plugin-import-x'
 import sonarjs from 'eslint-plugin-sonarjs'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
@@ -62,7 +62,7 @@ export default [
   // Imports config
   {
     name: '@jsm/eslint-config/imports',
-    plugins: { 'import-x': importPlugin },
+    plugins: { 'import-x': importXPlugin },
     rules: {
       'import-x/order': [
         2,
@@ -93,7 +93,7 @@ export default [
     plugins: {
       '@typescript-eslint': tseslint.plugin,
     },
-    extends: [importPlugin.flatConfigs.typescript],
+    extends: [importXPlugin.flatConfigs.typescript],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {

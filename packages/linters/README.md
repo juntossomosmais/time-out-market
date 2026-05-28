@@ -46,6 +46,8 @@ npm i @juntossomosmais/atomium-tokens
 npm i -D @eslint/js globals eslint-plugin-import-x eslint-plugin-react eslint-plugin-react-hooks eslint-config-prettier typescript-eslint
 ```
 
+> **Upgrading from a previous version?** Replace `eslint-plugin-import` with `eslint-plugin-import-x` and rename any `import/order` rule overrides in your local config to `import-x/order`.
+
 Then install the linters package:
 
 ```bash
