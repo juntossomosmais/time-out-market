@@ -1,7 +1,27 @@
+import { Linter } from 'eslint'
+
 import base from '../base.mjs'
 import react from '../react.mjs'
 
 describe('eslint-config/flat/react', () => {
+  // Regression: eslint-plugin-react-hooks v6 changed `configs.recommended` to
+  // an array, which the previous spread injected as numeric keys, breaking
+  // ESLint v10 with `ConfigError: Unexpected key "0"`. v7 changed it again
+  // to a nested `configs.flat.recommended`. This test runs the actual ESLint
+  // engine so future shape changes surface as a test failure, not in a
+  // consumer repo.
+  it('should be accepted by the ESLint engine without ConfigError', () => {
+    const linter = new Linter({ configType: 'flat' })
+
+    expect(() =>
+      linter.verify(
+        'const Foo = () => null\nexport default Foo\n',
+        react,
+        { filename: 'foo.tsx' }
+      )
+    ).not.toThrow()
+  })
+
   it('should export a non-empty array of flat configs', () => {
     expect(Array.isArray(react)).toBe(true)
     expect(react.length).toBeGreaterThan(0)
@@ -41,7 +61,7 @@ describe('eslint-config/flat/react', () => {
     expect(reactEntry.rules['react/prop-types']).toBe(0)
     expect(reactEntry.rules['react/no-unescaped-entities']).toBe(0)
     expect(reactEntry.rules['react/jsx-uses-react']).toBe(1)
-    expect(reactEntry.rules['react/react-in-jsx-scope']).toBe(1)
+    expect(reactEntry.rules['react/react-in-jsx-scope']).toBe(0)
     expect(reactEntry.rules['react/jsx-boolean-value']).toEqual([2, 'always'])
   })
 })
