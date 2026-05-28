@@ -43,8 +43,10 @@ npm i -D @commitlint/cli @commitlint/config-conventional prettier postcss stylel
 npm i @juntossomosmais/atomium-tokens
 
 # If you are using ESLint Flat config:
-npm i -D @eslint/js globals eslint-plugin-react eslint-plugin-react-hooks eslint-config-prettier typescript-eslint
+npm i -D @eslint/js globals eslint-plugin-import-x eslint-plugin-react eslint-plugin-react-hooks eslint-config-prettier typescript-eslint
 ```
+
+> **Upgrading from a previous version?** Replace `eslint-plugin-import` with `eslint-plugin-import-x` and rename any `import/order` rule overrides in your local config to `import-x/order`.
 
 Then install the linters package:
 
@@ -138,7 +140,7 @@ export default [
 ]
 ```
 
-If you are using custom groups of `import/order` rules with Flat config, you can use the following configs example:
+If you are using custom groups of `import-x/order` rules with Flat config, you can use the following configs example:
 
 ```js
 import config from '@juntossomosmais/linters/eslint-config/flat/base.mjs'
@@ -149,10 +151,10 @@ export default [
   ...config,
   {
     rules: {
-      'import/order': [
+      'import-x/order': [
         'error',
         {
-          ...importsConfig.rules['import/order'][1],
+          ...importsConfig.rules['import-x/order'][1],
           groups: ['builtin', 'external', 'internal', 'parent'],
           'newlines-between': 'always',
           pathGroups: [

@@ -49,7 +49,8 @@ We maintain a strict **Dependency Compatibility Matrix** that documents version 
 | Package | Version | Constraint | Reason | Related To |
 |---------|---------|------------|---------|------------|
 | **eslint-plugin-sonarjs** | `^4.0.3` | v4.x | Flat config support | ESLint |
-| **eslint-plugin-import** | `^2.32.0` | v2.x | Used by the flat base for `import/order` | ESLint |
+| **eslint-plugin-import-x** | `^4.16.2` | v4.x | Used by the flat base for `import-x/order`. Replaces `eslint-plugin-import` on the flat path because the original plugin still calls `SourceCode#getTokenOrCommentAfter`, removed in ESLint v10 | ESLint |
+| **eslint-plugin-import** | `^2.32.0` | v2.x | Kept for the published legacy eslintrc exports only (`src/eslint.config.js`); not used by the flat base | ESLint |
 | **eslint-plugin-react** | `^7.37.5` | v7.x | Used by the flat React config | ESLint, React |
 | **eslint-plugin-react-hooks** | `^7.1.1` | v7.x | Used by the flat React config | ESLint, React |
 | **eslint-config-prettier** | `^10.1.8` | v10.x | Disables formatting rules that conflict with Prettier | ESLint, Prettier |
@@ -179,7 +180,8 @@ These scenarios require extra caution:
 |----------|------|
 | ESLint v8/v9 install | Not supported. The `eslint` peer dependency is `>=10`; consumers must upgrade to v10 |
 | ESLint v10 + legacy `.eslintrc.*` | Not supported. ESLint v10 only loads flat config; consumers must migrate to `eslint.config.*` |
-| `eslint-plugin-import` / `eslint-plugin-react` on ESLint v10 | Their declared peer ranges may lag behind v10. Verify lint runs end to end after upgrades |
+| `eslint-plugin-import` on ESLint v10 (flat path) | Not supported. v2.32.0 still calls `SourceCode#getTokenOrCommentAfter`, removed in ESLint v10; the flat base uses `eslint-plugin-import-x` instead |
+| `eslint-plugin-react` on ESLint v10 | Declared peer range may lag behind v10. Verify lint runs end to end after upgrades |
 
 ## Consequences
 

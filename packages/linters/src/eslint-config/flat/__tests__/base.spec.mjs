@@ -75,7 +75,7 @@ describe('eslint-config/flat/base', () => {
     )
 
     expect(importsEntry).toBeDefined()
-    const [severity, options] = importsEntry.rules['import/order']
+    const [severity, options] = importsEntry.rules['import-x/order']
 
     expect(severity).toBe(2)
     expect(options['newlines-between']).toBe('always')
