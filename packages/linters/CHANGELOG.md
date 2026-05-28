@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.1](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.25.0...linters-v0.25.1) (2026-05-28)
+
+
+### Bug Fixes
+
+* **linters:** use eslint-plugin-import-x on flat config ([#351](https://github.com/juntossomosmais/time-out-market/issues/351)) ([71097fa](https://github.com/juntossomosmais/time-out-market/commit/71097fa35e84d1936e8d6861e42ae3139b73c637))
+
 ## [0.25.0](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.24.0...linters-v0.25.0) (2026-05-28)
 
 
