@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.2](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.25.1...linters-v0.25.2) (2026-05-28)
+
+
+### Bug Fixes
+
+* **linters:** make flat react config work with eslint v10 consumers ([#353](https://github.com/juntossomosmais/time-out-market/issues/353)) ([475c108](https://github.com/juntossomosmais/time-out-market/commit/475c1083d5b8913917e810c17cc9749475ac4444))
+
 ## [0.25.1](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.25.0...linters-v0.25.1) (2026-05-28)
 
 
