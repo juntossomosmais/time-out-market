@@ -149,10 +149,10 @@ export default [
   ...config,
   {
     rules: {
-      'import-x/order': [
+      'import/order': [
         'error',
         {
-          ...importsConfig.rules['import-x/order'][1],
+          ...importsConfig.rules['import/order'][1],
           groups: ['builtin', 'external', 'internal', 'parent'],
           'newlines-between': 'always',
           pathGroups: [
@@ -197,10 +197,10 @@ module.exports = {
 }
 ```
 
-For React with Flat config, create an `eslint.config.js` file with:
+For React with Flat config, create an `eslint.config.mjs` file with:
 
 ```js
-import baseConfig from '@juntossomosmais/linters/eslint.flat.config.react.js'
+import baseConfig from '@juntossomosmais/linters/eslint-config/flat/react.mjs'
 
 export default [
   ...baseConfig,

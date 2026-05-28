@@ -14,6 +14,7 @@
   ],
   "scripts": {
     "pre-commit": "lint-staged",
+    "lint": "eslint . -c eslint.config.mjs",
     "start": "npx nx run-many --target=start --maxParallel=10",
     "test": "npx nx run-many --target=test --parallel",
     "test:ci": "npx nx affected --target=test:ci --base=origin/main --parallel --verbose",
@@ -25,6 +26,7 @@
     "@babel/preset-typescript": "^7.29.7",
     "@commitlint/cli": "^21.0.1",
     "@commitlint/config-conventional": "^21.0.1",
+    "@eslint/js": "^10.0.1",
     "@juntossomosmais/atomium-tokens": "^2.1.0",
     "@nx/jest": "22.7.4",
     "@nx/js": "22.7.4",
@@ -42,7 +44,7 @@
     "@typescript-eslint/parser": "^8.60.0",
     "babel-loader": "^10.1.1",
     "benchmark": "^2.1.4",
-    "eslint": "^8.57.1",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-node": "^0.4.0",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -72,7 +74,7 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint --cache --fix"
+      "eslint --cache --fix -c eslint.config.mjs"
     ],
     "*.scss": [
       "stylelint --fix"
