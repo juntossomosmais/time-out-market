@@ -27,6 +27,7 @@
     "eslint-import-resolver-babel-plugin-root-import": ">= 1",
     "eslint-import-resolver-typescript": ">=4",
     "eslint-plugin-import": ">= 2",
+    "eslint-plugin-import-x": ">=4",
     "eslint-plugin-sonarjs": ">=4",
     "postcss-scss": ">= 4",
     "postcss-styled-syntax": ">=0.7",
@@ -36,5 +37,13 @@
     "stylelint-config-standard-scss": ">=17",
     "stylelint-order": ">=8",
     "stylelint": ">=17"
+  },
+  "peerDependenciesMeta": {
+    "eslint-plugin-import": {
+      "optional": true
+    },
+    "eslint-plugin-import-x": {
+      "optional": true
+    }
   }
 }
