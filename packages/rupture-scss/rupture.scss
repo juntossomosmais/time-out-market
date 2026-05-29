@@ -550,35 +550,26 @@ $default-scale-names: 'xs' 's' 'm' 'l' 'xl' 'hd';
   $use-device-width: map.get($rupture, use-device-width),
   $fallback-class: null
 ) {
-  // Special handling for predefined breakpoint names
   @if meta.type-of($scale-point) == 'string' {
-    // Get concrete pixel values based on breakpoint names
-    $max-width-value: null;
+    // Resolve the named breakpoint via the configured $rupture.scale-names / $rupture.scale
+    // instead of a hardcoded name list, so consumers' custom scales are honored.
+    $index: _get-scale-number($scale-point);
+    $scale: map.get($rupture, scale);
+    // Clamp to the last scale entry if _get-scale-number()'s fallback (2/3/4) overshoots a short custom scale.
+    $max-width-value: if(
+      $index <= list.length($scale),
+      list.nth($scale, $index),
+      list.nth($scale, list.length($scale))
+    );
 
-    // Direct mapping of named breakpoints to pixel values
-    // Use the breakpoint directly from our project values
-    @if $scale-point == 'xsmall' {
-      $max-width-value: 575px; // one less than $screen-xs
-    } @else if $scale-point == 'small' {
-      $max-width-value: 767px; // one less than $screen-sm
-    } @else if $scale-point == 'medium' {
-      $max-width-value: 991px; // one less than $screen-md
-    } @else if $scale-point == 'large' {
-      $max-width-value: 1279px; // one less than $screen-lg
-    } @else if $scale-point == 'xlarge' {
-      $max-width-value: 1439px; // one less than $screen-xlg
-    } @else if $scale-point == 'xxlarge' {
-      $max-width-value: 1919px; // one less than $screen-fhd
-    } @else if $scale-point == 'xxxlarge' {
-      $max-width-value: 2047px; // one less than $screen-2k
-    } @else if $scale-point == 'desktop2k' {
-      $max-width-value: 3839px; // one less than $screen-4k
-    } @else {
-      // Default to small if no match
-      $max-width-value: 767px;
+    @if $anti-overlap != null {
+      $max-width-value: _adjust-overlap(
+        $anti-overlap,
+        $max-width-value,
+        $side: 'max'
+      );
     }
 
-    // Generate the media query with the resolved width
     @media only screen and (max-width: #{$max-width-value}) {
       @content;
     }
