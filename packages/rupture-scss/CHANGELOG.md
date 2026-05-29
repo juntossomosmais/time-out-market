@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1](https://github.com/juntossomosmais/time-out-market/compare/rupture-scss-v1.1.0...rupture-scss-v1.1.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* **rupture-scss:** resolve below()/to-width() via $rupture.scale-names ([#344](https://github.com/juntossomosmais/time-out-market/issues/344)) ([dbe045f](https://github.com/juntossomosmais/time-out-market/commit/dbe045fbb5bc627e18e9ce9425afe8c2e773c0c1))
+
 ## [1.1.0](https://github.com/juntossomosmais/time-out-market/compare/rupture-scss-v1.0.0...rupture-scss-v1.1.0) (2025-06-24)
 
 
