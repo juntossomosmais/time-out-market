@@ -6,6 +6,7 @@ settings:
 
 overrides:
   tmp: ^0.2.7
+  json5@<1.0.2: ^1.0.2
 
 importers:
 
@@ -3788,10 +3789,6 @@ packages:
   json-stable-stringify@1.3.0:
     resolution: {integrity: sha512-qtYiSSFlwot9XHtF9bD9c7rwKjr+RecWT//ZnPvSmEjpV5mmPOCN4j8UjY5hbjNkOwZ/jQv3J6R1/pL7RwgMsg==}
     engines: {node: '>= 0.4'}
-
-  json5@0.5.1:
-    resolution: {integrity: sha512-4xrs1aW+6N5DalkqSVA8fxh458CXvR99WU8WLKmq4v8eWAL86Xo3BVqyd3SkA9wEVjCMqyvvRRkshAdOnBp5rw==}
-    hasBin: true
 
   json5@1.0.2:
     resolution: {integrity: sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==}
@@ -8277,7 +8274,7 @@ snapshots:
       babel-plugin-root-import: 5.1.0
       eslint-import-resolver-node: 0.2.3
       eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.60.1(eslint@10.4.1(jiti@2.6.1))(typescript@6.0.3))(eslint-import-resolver-typescript@4.4.5)(eslint@10.4.1(jiti@2.6.1))
-      json5: 0.5.1
+      json5: 1.0.2
     transitivePeerDependencies:
       - supports-color
 
@@ -9500,8 +9497,6 @@ snapshots:
       isarray: 2.0.5
       jsonify: 0.0.1
       object-keys: 1.1.1
-
-  json5@0.5.1: {}
 
   json5@1.0.2:
     dependencies:
