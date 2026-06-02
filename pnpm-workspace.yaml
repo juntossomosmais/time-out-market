@@ -1,0 +1,11 @@
+packages:
+  - 'packages/*'
+
+overrides:
+  tmp: ^0.2.7
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
+  - nx
+  - unrs-resolver
