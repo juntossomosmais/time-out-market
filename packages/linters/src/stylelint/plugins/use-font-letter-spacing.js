@@ -1,4 +1,7 @@
-const stylelint = require('stylelint')
+const stylelintModule = require('stylelint')
+// stylelint v17 is ESM-only: Jest's CJS interop exposes the API under `default`,
+// while Node's require(esm) unwraps it via the `module.exports` marker
+const stylelint = stylelintModule.default ?? stylelintModule
 
 const ruleName = 'plugin/use-font-letter-spacing'
 const messages = stylelint.utils.ruleMessages(ruleName, {

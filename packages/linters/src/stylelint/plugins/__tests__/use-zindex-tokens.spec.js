@@ -1,4 +1,7 @@
-const stylelint = require('stylelint')
+const stylelintModule = require('stylelint')
+// stylelint v17 is ESM-only: Jest's CJS interop exposes the API under `default`,
+// while Node's require(esm) unwraps it via the `module.exports` marker
+const stylelint = stylelintModule.default ?? stylelintModule
 
 const plugin = require('../use-zindex-tokens')
 const messages = plugin.rule.messages
@@ -48,7 +51,7 @@ describe('use-zindex-tokens rule', () => {
     const result = await stylelint.lint({ code: invalidCss, config, fix: true })
 
     expect(result.results[0].warnings).toHaveLength(0)
-    expect(result._output).toBe('.class { z-index: var(--zindex-10); }')
+    expect(result.code).toBe('.class { z-index: var(--zindex-10); }')
   })
 
   it('should not fix invalid CSS with unknown static values', async () => {
