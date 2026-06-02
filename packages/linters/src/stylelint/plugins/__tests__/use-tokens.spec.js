@@ -1,4 +1,7 @@
-const stylelint = require('stylelint')
+const stylelintModule = require('stylelint')
+// stylelint v17 is ESM-only: Jest's CJS interop exposes the API under `default`,
+// while Node's require(esm) unwraps it via the `module.exports` marker
+const stylelint = stylelintModule.default ?? stylelintModule
 
 const plugin = require('../use-tokens')
 const messages = plugin.rule.messages
@@ -52,7 +55,7 @@ describe('use-tokens rule', () => {
     const result = await stylelint.lint({ code: invalidCss, config, fix: true })
 
     expect(result.results[0].warnings).toHaveLength(0)
-    expect(result._output).toBe('.class { color: var(--color-neutral-white); }')
+    expect(result.code).toBe('.class { color: var(--color-neutral-white); }')
   })
 
   it('should fix invalid CSS when have two props', async () => {
@@ -63,7 +66,7 @@ describe('use-tokens rule', () => {
     })
 
     expect(result.results[0].warnings).toHaveLength(0)
-    expect(result._output).toBe(
+    expect(result.code).toBe(
       '.class { color: var(--color-neutral-white); }; .class-border { border-radius: var(--spacing-xxsmall) }'
     )
   })
@@ -76,7 +79,7 @@ describe('use-tokens rule', () => {
     })
 
     expect(result.results[0].warnings).toHaveLength(0)
-    expect(result._output).toBe(
+    expect(result.code).toBe(
       '.class { border: 1px solid var(--color-neutral-white); }'
     )
   })
