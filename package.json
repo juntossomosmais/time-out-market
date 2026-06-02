@@ -3,7 +3,7 @@
   "description": "A market of shared JavaScript libraries to help you save time and effort",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.34.1",
   "engines": {
     "yarn": "please-use-pnpm",
     "npm": "please-use-pnpm",
