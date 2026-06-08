@@ -3,22 +3,21 @@
   "description": "A market of shared JavaScript libraries to help you save time and effort",
   "license": "MIT",
   "private": true,
-  "npmClient": "npm",
+  "packageManager": "pnpm@10.34.1",
   "engines": {
-    "yarn": "please-use-npm",
-    "npm": ">=8.x",
+    "yarn": "please-use-pnpm",
+    "npm": "please-use-pnpm",
+    "pnpm": ">=10",
     "node": ">=20.19.0"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "pre-commit": "lint-staged",
     "lint": "eslint . -c eslint.config.mjs",
-    "start": "npx nx run-many --target=start --maxParallel=10",
-    "test": "npx nx run-many --target=test --parallel",
-    "test:ci": "npx nx affected --target=test:ci --base=origin/main --parallel --verbose",
-    "test:ci-merge": "npx nx affected --target=test:ci --base=origin/main~1 --head=origin/main --parallel --verbose"
+    "start": "nx run-many --target=start --maxParallel=10",
+    "test": "nx run-many --target=test --parallel",
+    "test:ci": "nx affected --target=test:ci --base=origin/main --parallel --verbose",
+    "test:ci-merge": "nx affected --target=test:ci --base=origin/main~1 --head=origin/main --parallel --verbose"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",
@@ -28,6 +27,7 @@
     "@commitlint/config-conventional": "^21.0.2",
     "@eslint/js": "^10.0.1",
     "@juntossomosmais/atomium-tokens": "^2.1.0",
+    "@juntossomosmais/linters": "workspace:*",
     "@nx/jest": "22.7.5",
     "@nx/js": "22.7.5",
     "@nx/vite": "22.7.5",
@@ -85,8 +85,5 @@
     "object-hash": "^3.0.0",
     "pako": "^2.1.0",
     "tslib": "^2.8.1"
-  },
-  "overrides": {
-    "tmp": "^0.2.7"
   }
 }

@@ -9,6 +9,7 @@ ADRs document significant architectural and technical decisions made in this pro
 ### Current ADRs
 
 - [ADR: Tooling Dependency Compatibility Matrix](./architecture-decision-records/202605-tooling-dependency-compatibility.md) - Version constraints and compatibility rules
+- [ADR: Migrate Package Manager from npm to pnpm](./architecture-decision-records/202606-package-manager-pnpm.md) - Why and how the repository moved to pnpm
 
 ### Creating a New ADR
 

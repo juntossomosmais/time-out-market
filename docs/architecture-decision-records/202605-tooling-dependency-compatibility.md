@@ -111,7 +111,7 @@ We maintain a strict **Dependency Compatibility Matrix** that documents version 
 }
 ```
 
-**Why**: Without this flag in CI, tests fail with ESM module errors even though they pass locally with `npm test`.
+**Why**: Without this flag in CI, tests fail with ESM module errors even though they pass locally with `pnpm test`.
 
 ### 2. Self-lint config resolution
 
@@ -142,27 +142,29 @@ We maintain a strict **Dependency Compatibility Matrix** that documents version 
 1. **Check the Matrix**: Verify the dependency is listed and review its constraints
 2. **Check Related Packages**: Identify all related packages in "Related To" column
 3. **Verify Compatibility**: Check if new version is compatible with related packages
-4. **Test Locally**: Run `npm test` and `npm run lint` before committing
+4. **Test Locally**: Run `pnpm test` and `pnpm run lint` before committing
 5. **Update Matrix**: If constraints change, update this ADR
 
 ### Update Process
 
 ```bash
 # 1. Check current versions
-npm outdated
+pnpm outdated
 
 # 2. For each package, check this ADR's matrix
 # 3. Update package.json respecting constraints
 # 4. Clean install
-rm -rf node_modules package-lock.json
-npm install
+rm -rf node_modules pnpm-lock.yaml
+pnpm install
 
 # 5. Run full test suite
-npm test
-npm run lint
+pnpm test
+pnpm run lint
 
 # 6. Update this ADR if constraints changed
 ```
+
+> **Note**: Commands updated from `npm` to `pnpm` after the [package manager migration ADR](./202606-package-manager-pnpm.md).
 
 ### Red Flags 🚩
 
@@ -170,7 +172,7 @@ These scenarios require extra caution:
 
 - **Major version changes** (e.g., v10 → v11)
 - **ESM-only packages** when working with CommonJS code
-- **Peer dependency conflicts** in npm install output
+- **Peer dependency conflicts** in pnpm install output
 - **TypeScript version changes** (affects many packages)
 - **Build tool changes** (Vite, Nx, Webpack)
 

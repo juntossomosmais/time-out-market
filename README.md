@@ -33,37 +33,31 @@ This project aims to create a market of shared JavaScript libraries to help you 
 
 ### Getting Started
 
+This project uses [pnpm](https://pnpm.io) as package manager (v10 or later). If you don't have it yet, install it with `corepack enable pnpm` or follow the [installation guide](https://pnpm.io/installation).
+
 1. Clone the repository
-2. Install dependencies: `npm install`
+2. Install dependencies: `pnpm install`
 3. Create a new branch: `git checkout -b my-new-branch`
 4. Make your changes
 
-### Local testing using NPM Link
+### Local testing using pnpm link
 
-You can use the NPM Link to locally test any library. To illustrate, follow the steps below:
-
-Link the library by navigating to the `node_modules/@juntossomosmais/library-name` directory, for example:
+You can use `pnpm link` to locally test any library. In your consumer project, link the library by pointing to its directory in this repository:
 
 ```bash
-cd node_modules/@juntossomosmais/linters
-npm link
-```
-
-Import library into your project by linking it using NPM Link. Navigate to your project's directory and run the following command example:
-
-```bash
-npm link @juntossomosmais/linters
+pnpm link ../path/to/time-out-market/packages/linters
 ```
 
 This will create a symbolic link between your project and the local library.
 
-Now, you can test the modifications in your project locally. Make sure to revert these changes and remove the NPM Link when you're done testing to avoid any conflicts or unexpected behavior with the actual installed library version in your project by running:
+Now, you can test the modifications in your project locally. Make sure to revert these changes and remove the link when you're done testing to avoid any conflicts or unexpected behavior with the actual installed library version in your project by running:
 
 ```bash
-npm unlink
+pnpm unlink @juntossomosmais/linters
+pnpm install
 ```
 
-Following these steps, you can quickly test and verify any customizations or modifications you have made to the library locally using NPM Link.
+Following these steps, you can quickly test and verify any customizations or modifications you have made to the library locally using pnpm link.
 
 ## Contributing
 
