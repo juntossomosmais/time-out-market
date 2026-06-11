@@ -1,5 +1,7 @@
 {
   "prerelease": false,
+  "release-type": "node",
+  "include-component-in-tag": true,
   "packages": {
     "packages/linters": {},
     "packages/http-front-cache": {},
