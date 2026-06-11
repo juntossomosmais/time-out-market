@@ -1,18 +1,24 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-.eslintcache
 .npmrc
 
 # compiled output
 dist
 tmp
 /out-tsc
+vite.config.*.timestamp*
 
 # dependencies
 node_modules
 
+# caches
+.nx
+.eslintcache
+/.sass-cache
+
 # IDEs and editors
 /.idea
+.vscode
 .project
 .classpath
 .c9/
@@ -20,27 +26,27 @@ node_modules
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# AI tools
+.cursor
+/.playwright-mcp
 
-# misc
-/.sass-cache
-/connect.lock
+# tests
 /coverage
 **/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
+/connect.lock
 testem.log
+
+# logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log
+
+# misc
 /typings
-.nx
+/libpeerconnection.log
 
 # System Files
 .DS_Store
 Thumbs.db
-
-vite.config.*.timestamp*
