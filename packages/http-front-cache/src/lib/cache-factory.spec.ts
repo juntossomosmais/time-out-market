@@ -115,7 +115,7 @@ describe('cacheFactory', () => {
     expect(cachedEntry).not.toBeNull()
 
     const decompressedEntry = inflate(cachedEntry, {
-      to: 'string',
+      toText: true,
     })
     const entry = JSON.parse(decompressedEntry)
 
@@ -132,7 +132,7 @@ describe('cacheFactory', () => {
 
       const cachedEntry = mockProvider.getItem(hashedParams)
       const decompressedEntry = inflate(cachedEntry, {
-        to: 'string',
+        toText: true,
       })
       const entry = JSON.parse(decompressedEntry)
 
@@ -215,7 +215,7 @@ describe('cacheFactory with multiple params', () => {
     const cachedEntry = mockProvider.getItem(multiHashedParams1)
 
     expect(cachedEntry).not.toBeNull()
-    const decompressedEntry = inflate(cachedEntry, { to: 'string' })
+    const decompressedEntry = inflate(cachedEntry, { toText: true })
     const entry = JSON.parse(decompressedEntry)
 
     expect(entry.data).toEqual(defaultResponse)
@@ -296,8 +296,8 @@ describe('cacheFactory respecting function name as namespace', () => {
 
     expect(cachedEntry1).not.toBeNull()
     expect(cachedEntry2).not.toBeNull()
-    const decompressedEntry1 = inflate(cachedEntry1, { to: 'string' })
-    const decompressedEntry2 = inflate(cachedEntry2, { to: 'string' })
+    const decompressedEntry1 = inflate(cachedEntry1, { toText: true })
+    const decompressedEntry2 = inflate(cachedEntry2, { toText: true })
     const entry1 = JSON.parse(decompressedEntry1)
     const entry2 = JSON.parse(decompressedEntry2)
 

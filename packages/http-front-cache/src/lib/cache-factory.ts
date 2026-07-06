@@ -43,7 +43,7 @@ export const cacheFactory = async <TParams extends unknown[], TResult>(
 
   if (cachedEntry) {
     const decompressedEntry = inflate(cachedEntry, {
-      to: 'string',
+      toText: true,
     })
     const entry = JSON.parse(decompressedEntry) as CacheEntry<TResult>
 
