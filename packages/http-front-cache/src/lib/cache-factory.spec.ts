@@ -96,6 +96,16 @@ function cachedServiceFunction<TParams extends unknown[], TResult>() {
   return { cachedFunction, removeCacheByParam }
 }
 
+function readCompressedEntry(key: string): Uint8Array {
+  const entry = mockProvider.getItem(key)
+
+  if (!entry) {
+    throw new Error(`No cache entry stored for key: ${key}`)
+  }
+
+  return entry
+}
+
 describe('cacheFactory', () => {
   beforeEach(() => {
     // @ts-expect-error - Mock provider clear method for testing
@@ -110,12 +120,9 @@ describe('cacheFactory', () => {
     expect(result).toEqual(defaultResponse)
     expect(mockServiceFunctionSpy).toHaveBeenCalledTimes(1)
 
-    const cachedEntry = mockProvider.getItem(defaultHashedParams)
-
-    expect(cachedEntry).not.toBeNull()
-
+    const cachedEntry = readCompressedEntry(defaultHashedParams)
     const decompressedEntry = inflate(cachedEntry, {
-      to: 'string',
+      toText: true,
     })
     const entry = JSON.parse(decompressedEntry)
 
@@ -130,9 +137,9 @@ describe('cacheFactory', () => {
     async (params, hashedParams) => {
       await cachedServiceFunction().cachedFunction(params)
 
-      const cachedEntry = mockProvider.getItem(hashedParams)
+      const cachedEntry = readCompressedEntry(hashedParams)
       const decompressedEntry = inflate(cachedEntry, {
-        to: 'string',
+        toText: true,
       })
       const entry = JSON.parse(decompressedEntry)
 
@@ -212,10 +219,8 @@ describe('cacheFactory with multiple params', () => {
     expect(result).toEqual(defaultResponse)
     expect(mockServiceFunctionSpy).toHaveBeenCalledTimes(1)
 
-    const cachedEntry = mockProvider.getItem(multiHashedParams1)
-
-    expect(cachedEntry).not.toBeNull()
-    const decompressedEntry = inflate(cachedEntry, { to: 'string' })
+    const cachedEntry = readCompressedEntry(multiHashedParams1)
+    const decompressedEntry = inflate(cachedEntry, { toText: true })
     const entry = JSON.parse(decompressedEntry)
 
     expect(entry.data).toEqual(defaultResponse)
@@ -289,15 +294,13 @@ describe('cacheFactory respecting function name as namespace', () => {
     const result = await cacheGroup1.cachedFunction(defaultParams)
     const result2 = await cacheGroup2.cachedFunction(defaultParams)
 
-    const cachedEntry1 = mockProvider.getItem(defaultHashedParams)
-    const cachedEntry2 = mockProvider.getItem(anotherHashedParams)
+    const cachedEntry1 = readCompressedEntry(defaultHashedParams)
+    const cachedEntry2 = readCompressedEntry(anotherHashedParams)
 
     expect(mockServiceFunctionSpy).toHaveBeenCalledTimes(1)
 
-    expect(cachedEntry1).not.toBeNull()
-    expect(cachedEntry2).not.toBeNull()
-    const decompressedEntry1 = inflate(cachedEntry1, { to: 'string' })
-    const decompressedEntry2 = inflate(cachedEntry2, { to: 'string' })
+    const decompressedEntry1 = inflate(cachedEntry1, { toText: true })
+    const decompressedEntry2 = inflate(cachedEntry2, { toText: true })
     const entry1 = JSON.parse(decompressedEntry1)
     const entry2 = JSON.parse(decompressedEntry2)
 

@@ -3,6 +3,7 @@ export default {
   preset: '../../jest.preset.js',
   collectCoverage: true,
   testEnvironment: 'jsdom',
+  setupFiles: ['<rootDir>/jest.setup.ts'],
   transform: {
     '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
