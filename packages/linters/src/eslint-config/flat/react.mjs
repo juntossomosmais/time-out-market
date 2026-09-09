@@ -28,6 +28,10 @@ export default [
     ...react.configs.flat.recommended,
     ...react.configs.flat['jsx-runtime'],
     ...reactHooksBlock,
+    // Only `rules` needs an explicit merge today: none of the spread configs
+    // defines `settings`, and the `languageOptions` below already restates the
+    // only thing they contribute. If a future plugin release adds a `settings`
+    // key, it needs the same explicit merge as `rules`.
     plugins: {
       react: react,
       'react-hooks': reactHooks,
@@ -40,7 +44,13 @@ export default [
         },
       },
     },
+    // The spreads above also carry a `rules` key each, and a later key wins in
+    // an object literal, so the recommended rule sets are merged explicitly
+    // here instead of being silently replaced by the overrides below.
     rules: {
+      ...react.configs.flat.recommended.rules,
+      ...(react.configs.flat['jsx-runtime']?.rules ?? {}),
+      ...(reactHooksBlock.rules ?? {}),
       'react/display-name': 0,
       'react/prop-types': 0,
       'react/no-unescaped-entities': 0,
