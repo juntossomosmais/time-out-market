@@ -49,8 +49,8 @@ export default [
     // here instead of being silently replaced by the overrides below.
     rules: {
       ...react.configs.flat.recommended.rules,
-      ...(react.configs.flat['jsx-runtime']?.rules ?? {}),
-      ...(reactHooksBlock.rules ?? {}),
+      ...react.configs.flat['jsx-runtime']?.rules,
+      ...reactHooksBlock.rules,
       'react/display-name': 0,
       'react/prop-types': 0,
       'react/no-unescaped-entities': 0,
