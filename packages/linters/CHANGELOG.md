@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.3](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.25.2...linters-v0.25.3) (2026-09-09)
+
+
+### Bug Fixes
+
+* **linters:** merge recommended react and hooks rules in the flat config ([#363](https://github.com/juntossomosmais/time-out-market/issues/363)) ([81d1fb5](https://github.com/juntossomosmais/time-out-market/commit/81d1fb513deae3136d2eb3a305aee40291b40b1b))
+
 ## [0.25.2](https://github.com/juntossomosmais/time-out-market/compare/linters-v0.25.1...linters-v0.25.2) (2026-05-28)
 
 
