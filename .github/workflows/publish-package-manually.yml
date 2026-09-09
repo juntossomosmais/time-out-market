@@ -1,0 +1,58 @@
+name: Publish Package Manually
+
+# Escape hatch for publishing a package without release-please, for when the
+# release workflow cannot run. The version published is whatever the selected
+# package's package.json declares on the chosen ref.
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Package to publish'
+        required: true
+        type: choice
+        options:
+          - '@juntossomosmais/linters'
+          - '@juntossomosmais/http-front-cache'
+          - 'rupture-scss'
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: release-and-publish
+  cancel-in-progress: false
+
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: 'pnpm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@juntossomosmais'
+
+      - name: Authenticate with the GitHub Package Registry
+        run: |
+          echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build and publish package
+        run: pnpm exec nx run "$PACKAGE:publish-package"
+        env:
+          PACKAGE: ${{ inputs.package }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
